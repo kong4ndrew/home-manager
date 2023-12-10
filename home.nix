@@ -128,7 +128,7 @@ home.file = {
         vim.keymap.set('n', 'n'    , 'nzzzv')                         -- When searching, keeps cursor in the middle of the screen
         vim.keymap.set('n', 'N'    , 'Nzzzv')                         -- When searching, keeps cursor in the middle of the screen
 
-        vim.keymap.set('x', '<leader>p', '\"_dP')                     -- When pasting over something, don't replace vim clipboard with whatever was pasted over
+        vim.keymap.set('x', '<leader>p', '\"_dP')                     -- When pasting over something, don't replace vim clipboard with whatever was just replaced
 
         vim.keymap.set('n', '<leader>y', '\"+y')                      -- <leader>(yanks) will copy to system clipboard
         vim.keymap.set('v', '<leader>y', '\"+y')
@@ -163,7 +163,7 @@ home.file = {
         vim.opt.tabstop        = 4
         vim.opt.shiftwidth     = 4
         vim.opt.smarttab       = false                                -- To tab 4 spaces but delete 1, set smarttab = false and softtabstop = 0 
-		vim.opt.expandtab      = true
+        vim.opt.expandtab      = true
         
         vim.opt.smartindent    = false                                -- Enabling this causes causes the closing brace to start one level shifted right for some reason
         
@@ -348,11 +348,11 @@ programs.zsh = {
     enable       = true;
     dotDir       = ".config/zsh";
     shellAliases = {
-        hm = "home-manager switch --flake ~/.config/home-manager";
+        hm     = "home-manager switch --flake ~/.config/home-manager";
         config = "cd ~/.config/home-manager && nvim home.nix";
     };
     prezto = {
-        enable = true;
+        enable       = true;
         prompt.theme = "powerline";
     };
     loginExtra = " ponysay -b ascii -- '⭐ The Lord is FOR you and not AGAINST you! ⭐' ";
@@ -465,15 +465,6 @@ programs.neovim = {
       nodePackages.neovim
     ];
   };
-
-#===============================================================================================================================================#
-
-#GIT============================================================================================================================================#
-
-programs.git = {
-    userName  = "kong4ndrew";
-    userEmail = "kong4ndrew@gmail.com";
-};
 
 #===============================================================================================================================================#
 
