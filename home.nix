@@ -147,9 +147,13 @@ home.file = {
         vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz')
         vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
 
-        vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- Incrementally changes every instance of the word your cursor is on.
+        vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- Incrementally changes every instance of the word your cursor is on
         vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })              -- Sets execute permission on the current file
 
+        vim.keymap.set('n', '`.'   , '`.zz')                             -- Jumping to last change will position the cursor in the middle of the screen
+        vim.keymap.set('n', "'."   , "'.zz")
+        vim.keymap.set('n', '<C-o>', '<C-o>zz')                          -- Jumping to previous/next jumps will position the cursor in the middle of the screen
+        vim.keymap.set('n', '<C-i>', '<C-i>zz')
     '';
            #                              #
            #------------------------------#
@@ -248,7 +252,7 @@ home.file = {
                     comments  = "bold,italic",
                     keywords  = "bold",
                     types     = "bold",
-                    functions = "italic"
+                    functions = "italic",
                 },
             },
         })
@@ -285,9 +289,9 @@ home.file = {
         vim.keymap.set('n', '<C-e>'    , function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
         vim.keymap.set('n', '<C-h>'    , function() harpoon:list():select(1) end)
-        vim.keymap.set('n', '<C-t>'    , function() harpoon:list():select(2) end)
-        vim.keymap.set('n', '<C-n>'    , function() harpoon:list():select(3) end)
-        vim.keymap.set('n', '<C-s>'    , function() harpoon:list():select(4) end)
+        vim.keymap.set('n', '<C-n>'    , function() harpoon:list():select(2) end)
+        vim.keymap.set('n', '<C-l>'    , function() harpoon:list():select(3) end)
+        vim.keymap.set('n', '<C-.>'    , function() harpoon:list():select(4) end)
     '';
            #                              #
            #------------------------------#
