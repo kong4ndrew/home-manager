@@ -117,14 +117,14 @@ home.file = {
         vim.g.mapleader = ' '
         vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
-        vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")                  -- When in visual mode, 'J' will move the line down
-        vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")                  -- When in visual mode, 'K' will move the line up
+        vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")                  -- When in visual mode, 'J' will move the selected chunk down
+        vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")                  -- When in visual mode, 'K' will move the selected chunk up
 
         vim.keymap.set('n', 'J'    , 'mzJ`z')                         -- Joining lines will keep cursor where it originally was. (mark 'z' + 'J' + return back to mark 'z')
         vim.keymap.set('n', '<C-d>', '<C-d>M')                        -- <C-d> will keep the cursor in the middle of the screen (<C-d> + 'M')
         vim.keymap.set('n', '<C-u>', '<C-u>M')                        -- <C-u> will keep the cursor in the middle of the screen (<C-u> + 'M')
-        vim.keymap.set('n', '<C-m>', '<C-e>M')                        -- <C-m> will scroll down one row and keep the cursor in the middle of the screen ('<C-e>' + 'M')
-        vim.keymap.set('n', '<C-y>', '<C-y>M')                        -- <C-y> will scroll up one row and keep the cursor in the middle of the screen ('<C-y>' + 'M')
+        vim.keymap.set('n', '<C-m>', '<C-e>M')                        -- <C-m> will also keep the cursor in the middle of the screen ('<C-e>' + 'M')
+        vim.keymap.set('n', '<C-y>', '<C-y>M')                        -- <C-y> will also keep the cursor in the middle of the screen ('<C-y>' + 'M')
         vim.keymap.set('n', 'n'    , 'nzzzv')                         -- When searching, keeps cursor in the middle of the screen
         vim.keymap.set('n', 'N'    , 'Nzzzv')                         -- When searching, keeps cursor in the middle of the screen
 
@@ -142,7 +142,7 @@ home.file = {
 
         vim.keymap.set('n', 'Q', '<nop>')
 
-        vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')              -- Something to do with "quick fix navigation"?...
+        vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')              -- Quick fix naviation-related
         vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
         vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz')
         vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
@@ -178,7 +178,7 @@ home.file = {
         vim.opt.undodir        = os.getenv('HOME') .. "/.vim/undodir" -- In Lua, .. is the string concatenation operator
         vim.opt.undofile       = true
 
-        vim.opt.hlsearch       = true                                -- Prevent search highlights from persisting 
+        vim.opt.hlsearch       = true                                 -- Prevent search highlights from persisting 
         vim.opt.incsearch      = true                                 -- Use incremental search with regex to search complex entries!
 
         vim.opt.termguicolors  = true
@@ -222,7 +222,7 @@ home.file = {
     ".config/nvim/after/plugin/lualine.lua".text = ''
         require('lualine').setup {
             options = {
-                theme = 'dayfox',
+                theme = 'duskfox',
                 --theme = 'tokyonight',
                 --theme = 'solarized_light',
             },
@@ -237,7 +237,7 @@ home.file = {
 
         -- In the future, add a way to reload lualine and kitty as well?
         function colormoi(color)
-            color = color or 'dayfox'
+            color = color or 'duskfox'
             vim.cmd.colorscheme(color)
 
             vim.api.nvim_set_hl(0, "Normal", { bg = none })
@@ -323,6 +323,37 @@ home.file = {
            #                              #
            #------------------------------#
 
+           #----------- lsp.lua ----------#
+           #                              #
+    ".config/nvim/after/plugin/lsp.lua".text = ''
+        local lsp_zero = require('lsp-zero')
+        
+        -- Setup keybindings only when a language server is attached
+        lsp_zero.on_attach(function(client, bufnr)
+            local opts = { buffer = bufnr, remap = false }
+
+            vim.keymap.set('n', 'gd'         , function() vim.lsp.buf.definition() end      , opts)
+            vim.keymap.set('n', 'K'          , function() vim.lsp.buf.hover() end           , opts)
+            vim.keymap.set('n', '<leader>vws', function() vim.lsp.buf.workspace_symbol() end, opts)
+            vim.keymap.set('n', '<leader>vd' , function() vim.diagnostic.open_float() end   , opts)
+            vim.keymap.set('n', '[d'         , function() vim.diagnostic.goto_next() end    , opts)
+            vim.keymap.set('n', ']d'         , function() vim.diagnostic.goto_prev() end    , opts)
+            vim.keymap.set('n', '<leader>vca', function() vim.lsp.buf.code_action() end     , opts)
+            vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end      , opts)
+            vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end          , opts)
+            vim.keymap.set('i', '<C-h>'      , function() vim.lsp.buf.signature_help() end  , opts)
+
+        end)
+
+        -- Use :LspZeroViewConfigSource sourcekit to see config options!
+        require('lspconfig').sourcekit.setup({ })
+
+        lsp_zero.setup_servers({ 'sourcekit', })
+
+    '';
+           #                              #
+           #------------------------------#
+
 #===-===-===-===-===-===-===-===-===-===-===-===-===-===-#
 };
 
@@ -368,24 +399,26 @@ programs.zsh = {
 
 programs.kitty = {
     enable = true;
-    theme  = "Alabaster";
-#    theme  = "Tokyo Night";
+#    theme  = "Alabaster";
+#    theme = "Alabaster Dark";
+#    theme = "Nightfox";
+    theme  = "Tokyo Night";
 #    theme = "CLRS";
     font = {
         size = 15;
-        name = "Liga SFMono Nerd Font Medium"; # Check FontBook for the name because it must be verbatim.
+        name = "Liga SFMono Nerd Font Medium"; # Check FontBook for the name because it must be verbatim
     };
     shellIntegration = {
         mode = "enabled";
         enableZshIntegration = true;
     };
     settings = {
-        bold_font                  = "Liga SFMono Nerd Font Bold";
-        italic_font                = "Liga SFMono Nerd Font SemiBold";     # Basically doing this to hack a semibold option in neovim.
-        bold_italic_font           = "Liga SFMono Nerd Font Light Italic"; #
-        cursor_blink_interval      = 0;
-        background_blur            = 64;
-        background_opacity         = "0.75";
+        bold_font             = "Liga SFMono Nerd Font Bold";
+        italic_font           = "Liga SFMono Nerd Font SemiBold";     # Basically doing this to hack a semibold weight option into neovim :(
+        bold_italic_font      = "Liga SFMono Nerd Font Light Italic"; # Same thing as above except with a light weight
+        cursor_blink_interval = 0;
+        background_blur       = 64;
+        background_opacity    = "0.75";
 #        background                 = "#fdf6e3";
 #        dynamic_background_opacity = true;
     };
@@ -457,15 +490,46 @@ programs.neovim = {
             http
             json
             sql
+            markdown
+            markdown_inline
           ]);
+          type   = "lua";
+        }
+        {
+          plugin = lsp-zero-nvim;
+          type   = "lua";
+        }
+        {
+          plugin = nvim-lspconfig;
+          type   = "lua";
+        }
+        {
+          plugin = nvim-cmp;
+          type   = "lua";
+        }
+        {
+          plugin = cmp-nvim-lsp;
+          type   = "lua";
+        }
+        {
+          plugin = luasnip;
+          type   = "lua";
+        }
+        {
+          plugin = mason-lspconfig-nvim;
+          type   = "lua";
+        }
+        {
+          plugin = mason-nvim;
           type   = "lua";
         }
 
     ]; 
     extraPackages = with pkgs; [
-      ripgrep
-      fd
-      nodePackages.npm
+      ripgrep                 # telescope dependency
+      fd                      # telescope dependency
+      sourcekit-lsp           # Swift LSP
+      nodePackages.npm         
       nodePackages.neovim
     ];
   };
