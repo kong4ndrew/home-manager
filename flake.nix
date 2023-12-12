@@ -23,7 +23,7 @@
   outputs = inputs@{ nixpkgs, home-manager, sf-mono-liga-src, ... }:
     let
       system = "x86_64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs   = nixpkgs.legacyPackages.${system};
     in {
       homeConfigurations."andrewkong" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;

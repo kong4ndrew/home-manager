@@ -76,6 +76,8 @@ home.packages = with pkgs; [
 
     sf-mono-liga-bin
 
+    # zsh-powerlevel10k
+
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -92,6 +94,9 @@ home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
+
+    # # To source something you have to GIT ADD it! Nix takes into consideration
+    # # the git index...I wasted so much time figuring that one out!!!
     # ".screenrc".source = dotfiles/screenrc;
 
     # # You can also set the file content immediately.
@@ -347,14 +352,17 @@ home.file = {
 
         -- Use :LspZeroViewConfigSource sourcekit to see config options!
         require('lspconfig').sourcekit.setup({ })
+        require('lspconfig').lua_ls.setup({ })
+        require('lspconfig').nixd.setup({ })
+        require('lspconfig').bashls.setup({ })
 
-        lsp_zero.setup_servers({ 'sourcekit', })
-
-    '';
+        lsp_zero.setup_servers({ 'sourcekit', 'lua_ls', 'nixd', 'bashls' }) '';
            #                              #
            #------------------------------#
 
 #===-===-===-===-===-===-===-===-===-===-===-===-===-===-#
+
+
 };
 
 #HOME SESSION VARIABLES=========================================================================================================================#
@@ -380,30 +388,38 @@ home.sessionVariables = {
 #ZSH============================================================================================================================================#
 
 programs.zsh = {
-    enable       = true;
-    dotDir       = ".config/zsh";
+    enable           = true;
+    dotDir           = ".config/zsh";
+    enableCompletion = true;
+    initExtra        = "[[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}";
+
+    prezto = {
+        enable        = true;
+        color         = true;
+        editor.keymap = "vi";
+        prompt.theme  = "powerlevel10k";
+    };
+
     shellAliases = {
         hm     = "home-manager switch --flake ~/.config/home-manager";
         config = "cd ~/.config/home-manager && nvim home.nix";
     };
-    prezto = {
-        enable       = true;
-        prompt.theme = "powerline";
-    };
-    loginExtra = " ponysay -b ascii -- '⭐ The Lord is FOR you and not AGAINST you! ⭐' ";
+
+    loginExtra = "ponysay -b ascii -- '⭐ The Lord is FOR you and not AGAINST you! ⭐'";
 };
+
 
 #===============================================================================================================================================#
 
 #KITTY==========================================================================================================================================#
 
 programs.kitty = {
-    enable = true;
 #    theme  = "Alabaster";
 #    theme = "Alabaster Dark";
 #    theme = "Nightfox";
-    theme  = "Tokyo Night";
 #    theme = "CLRS";
+    theme  = "Tokyo Night";
+    enable = true;
     font = {
         size = 15;
         name = "Liga SFMono Nerd Font Medium"; # Check FontBook for the name because it must be verbatim
@@ -529,6 +545,9 @@ programs.neovim = {
       ripgrep                 # telescope dependency
       fd                      # telescope dependency
       sourcekit-lsp           # Swift LSP
+      lua-language-server     # Lua LSP
+      nixd                    # Nix LSP
+      nodePackages.bash-language-server # Bash LSP
       nodePackages.npm         
       nodePackages.neovim
     ];
