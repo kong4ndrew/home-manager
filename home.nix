@@ -95,8 +95,11 @@ home.file = {
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
 
-    # # To source something you have to GIT ADD it! Nix takes into consideration
-    # # the git index...I wasted so much time figuring that one out!!!
+    # # To source something like this you have to GIT ADD it! Nix takes into 
+    # # consideration the git index...I wasted so much time figuring that one out!!! 
+    # # Also, the file must be in the same directory as home.nix and flake.nix. Using a
+    # # higher-level path gives you an error and trying to reference the path is
+    # # considered 'impure'.
     # ".screenrc".source = dotfiles/screenrc;
 
     # # You can also set the file content immediately.
@@ -391,7 +394,13 @@ programs.zsh = {
     enable           = true;
     dotDir           = ".config/zsh";
     enableCompletion = true;
-    initExtra        = "[[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh}";
+    initExtra        = "
+        # Sourcing p10k.zsh for powerlevel10k
+        [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh} 
+
+        # Remove delay in registering ESC
+        KEYTIMEOUT=15
+    ";
 
     prezto = {
         enable        = true;
@@ -434,9 +443,9 @@ programs.kitty = {
         bold_italic_font      = "Liga SFMono Nerd Font Light Italic"; # Same thing as above except with a light weight
         cursor_blink_interval = 0;
         background_blur       = 64;
-        background_opacity    = "0.75";
-#        background                 = "#fdf6e3";
-#        dynamic_background_opacity = true;
+        background_opacity    = "0.93";
+        background_tint       = 1;
+        background            = "#15202B";
     };
 };
 
