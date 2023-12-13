@@ -68,6 +68,8 @@ home.packages = with pkgs; [
     # # "Hello, world!" when run.
     ponysay
 
+    bat
+
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -75,8 +77,6 @@ home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "Hack" "JetBrainsMono" "SourceCodePro" ]; })
 
     sf-mono-liga-bin
-
-    # zsh-powerlevel10k
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -131,6 +131,8 @@ home.file = {
         vim.keymap.set('n', 'J'    , 'mzJ`z')                         -- Joining lines will keep cursor where it originally was. (mark 'z' + 'J' + return back to mark 'z')
         vim.keymap.set('n', '<C-d>', '<C-d>M')                        -- <C-d> will keep the cursor in the middle of the screen (<C-d> + 'M')
         vim.keymap.set('n', '<C-u>', '<C-u>M')                        -- <C-u> will keep the cursor in the middle of the screen (<C-u> + 'M')
+        vim.keymap.set('n', '<C-f>', '<C-f>M')                        -- <C-f> will keep the cursor in the middle of the screen (<C-f> + 'M')
+        vim.keymap.set('n', '<C-b>', '<C-b>M')                        -- <C-b> will keep the cursor in the middle of the screen (<C-b> + 'M')
         vim.keymap.set('n', '<C-m>', '<C-e>M')                        -- <C-m> will also keep the cursor in the middle of the screen ('<C-e>' + 'M')
         vim.keymap.set('n', '<C-y>', '<C-y>M')                        -- <C-y> will also keep the cursor in the middle of the screen ('<C-y>' + 'M')
         vim.keymap.set('n', 'n'    , 'nzzzv')                         -- When searching, keeps cursor in the middle of the screen
@@ -230,7 +232,7 @@ home.file = {
     ".config/nvim/after/plugin/lualine.lua".text = ''
         require('lualine').setup {
             options = {
-                theme = 'duskfox',
+                theme = 'dayfox',
                 --theme = 'tokyonight',
                 --theme = 'solarized_light',
             },
@@ -245,7 +247,7 @@ home.file = {
 
         -- In the future, add a way to reload lualine and kitty as well?
         function colormoi(color)
-            color = color or 'duskfox'
+            color = color or 'dayfox'
             vim.cmd.colorscheme(color)
 
             vim.api.nvim_set_hl(0, "Normal", { bg = none })
@@ -399,7 +401,7 @@ programs.zsh = {
         [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh} 
 
         # Remove delay in registering ESC
-        KEYTIMEOUT=15
+        KEYTIMEOUT=1
     ";
 
     prezto = {
@@ -423,11 +425,11 @@ programs.zsh = {
 #KITTY==========================================================================================================================================#
 
 programs.kitty = {
-#    theme  = "Alabaster";
+#    theme  = "Tokyo Night";
 #    theme = "Alabaster Dark";
 #    theme = "Nightfox";
 #    theme = "CLRS";
-    theme  = "Tokyo Night";
+    theme  = "Alabaster";
     enable = true;
     font = {
         size = 15;
@@ -445,7 +447,8 @@ programs.kitty = {
         background_blur       = 64;
         background_opacity    = "0.93";
         background_tint       = 1;
-        background            = "#15202B";
+        background            = "#ffffff";
+#        background            = "#15202B";
     };
 };
 
