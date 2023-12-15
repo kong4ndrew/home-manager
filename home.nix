@@ -203,6 +203,9 @@ home.file = {
         vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'         -- Treesitter's foldexpr definitions
         vim.opt.foldenable     = false                                -- Folds are disabled at startup
 
+        vim.opt.cursorline     = true                                 -- Enable cursorline highlights
+        vim.opt.cursorlineopt  = 'number'                             -- Set cursorline highlight option to just the line number of the cursor
+
         vim.g.mapleader        = ' '
     '';
            #                              #
@@ -433,7 +436,7 @@ programs.kitty = {
     enable = true;
     font = {
         size = 15;
-        name = "Liga SFMono Nerd Font Medium"; # Check FontBook for the name because it must be verbatim
+        name = "Liga SFMono Nerd Font"; # Check FontBook for the name because it must be verbatim
     };
     shellIntegration = {
         mode = "enabled";
@@ -445,7 +448,7 @@ programs.kitty = {
         bold_italic_font      = "Liga SFMono Nerd Font Light Italic"; # Same thing as above except with a light weight
         cursor_blink_interval = 0;
         background_blur       = 64;
-        background_opacity    = "0.93";
+        background_opacity    = "1.0";
         background_tint       = 1;
         background            = "#ffffff";
 #        background            = "#15202B";
