@@ -5,17 +5,21 @@
 Install the Nix Installer from [Determinate Systems](https://https://zero-to-nix.com/start/install)
 Enter password when it wants to sudo
 Confirm Y to proceed with installation.
-Restart terminal and confirm Nix installed with 
-> nix doctor
->
-> /nix/nix-installer self-test
+Restart terminal and confirm Nix installed with:
+```bash
+nix doctor
+
+/nix/nix-installer self-test
+```
 
 #### 2. Clone this repository
 
-If you don't have a .config folder already, create one and change the working directory to it.
+Change directory into home directory and if you have already a .config folder in your home directory, rename it.<br>
+Otherwise,
 > cd ~
 >
-> mkdir .config && cd ~/.config
+> ls -a | grep '.config'
+If no results turn up, you're good to go.
 
 Clone this repo into the .config directory
 > nix run nixpkgs#git clone https://github.com/kong4ndrew/config
