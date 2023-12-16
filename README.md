@@ -26,17 +26,23 @@
 - ~~Add LSP support for other languages~~
 - ~~Add a consistent background for light and dark~~
 - ~~Modularize config files~~
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-### Markdown Syntax Reference
+## Markdown Syntax Reference
 
 - Unordered list item
     - Indented list item
 
 ---
 
-*Italicized text*
-**Bold text**
-***Bold and italicized text***
+*Italicized text* <br>
+**Bold text** <br>
+***Bold and italicized text*** <br>
 
 ---
 
