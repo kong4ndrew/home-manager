@@ -7,9 +7,19 @@ Enter password when it wants to sudo
 Confirm Y to proceed with installation.
 Restart terminal and confirm Nix installed with 
 > nix doctor
+>
 > /nix/nix-installer self-test
 
-#### 2. 
+#### 2. Clone this repository
+
+If you don't have a .config folder already, create one and change the working directory to it.
+> cd ~
+>
+> mkdir .config && cd ~/.config
+
+Clone this repo into the .config directory
+> nix run nixpkgs#git clone https://github.com/kong4ndrew/config
+
 
 # To-do
 
