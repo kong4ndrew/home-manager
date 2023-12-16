@@ -2,10 +2,11 @@
 
 #### 1. Install Nix
 
-Install the Nix Installer from [Determinate Systems](https://https://zero-to-nix.com/start/install)
-Enter password when it wants to sudo
-Confirm Y to proceed with installation.
-Restart terminal and confirm Nix installed with:
+Install the Nix Installer from [Determinate Systems](https://https://zero-to-nix.com/start/install)<br>
+Enter password when it wants to sudo<br>
+Confirm Y to proceed with installation.<br>
+Restart terminal and confirm Nix installed with:<br>
+
 ```bash
 nix doctor
 
@@ -14,15 +15,21 @@ nix doctor
 
 #### 2. Clone this repository
 
-Change directory into home directory and if you have already a .config folder in your home directory, rename it.<br>
-Otherwise,
-> cd ~
->
-> ls -a | grep '.config'
-If no results turn up, you're good to go.
+Change directory into home directory and if you have already a .config folder in your home directory, rename it.
 
-Clone this repo into the .config directory
-> nix run nixpkgs#git clone https://github.com/kong4ndrew/config
+```bash
+cd ~
+
+ls -a | grep '.config'
+```
+
+If no results turn up, you're good to go.<br>
+
+Clone this repo into your home directory
+
+`nix run nixpkgs#git clone https://github.com/kong4ndrew/config`
+
+#### 3. Switch into your first home-manager generation
 
 
 # To-do
