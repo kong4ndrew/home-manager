@@ -15,7 +15,8 @@ nix doctor
 
 #### 2. Clone this repository
 
-Change directory into home directory and if you have already a .config folder in your home directory, rename it.
+Change directory into home directory and if you have already a .config folder in your home directory, rename it.<br>
+If no results turn up, you're good to go.<br>
 
 ```bash
 cd ~
@@ -23,11 +24,11 @@ cd ~
 ls -a | grep '.config'
 ```
 
-If no results turn up, you're good to go.<br>
-
 Clone this repo into your home directory
 
-`nix run nixpkgs#git clone https://github.com/kong4ndrew/config`
+```bash
+nix run nixpkgs#git clone https://github.com/kong4ndrew/.config
+```
 
 #### 3. Switch into your first home-manager generation
 
