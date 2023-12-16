@@ -15,8 +15,9 @@ nix doctor
 
 #### 2. Clone this repository
 
-Change directory into home directory and if you have already a .config folder in your home directory, rename it.<br>
-If no results turn up, you're good to go.<br>
+Change directory into home directory.<br>
+If you have already a .config folder in your home directory, rename it.<br>
+If no results turn up when you `ls grep`, you should be good to go.<br>
 
 ```bash
 cd ~
