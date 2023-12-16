@@ -52,7 +52,7 @@ A link [kong4ndrew](https://github.com/kong4ndrew)
 **Bold text** <br>
 ***Bold and italicized text*** <br>
 
----
+<br>
 
 > Blockquotes
 
@@ -60,7 +60,7 @@ A link [kong4ndrew](https://github.com/kong4ndrew)
 >
 > .
 
----
+<br>
 
 # Heading level 1
 ## Heading level 2
@@ -69,12 +69,12 @@ A link [kong4ndrew](https://github.com/kong4ndrew)
 ##### Heading level 5
 ###### Heading level 6
 
----
+<br>
 
 <p>This is a paragraph
 </p>
 
----
+<br>
 
 
 <p>This is a paragraph.<br> It also has a line break in it.</p>
