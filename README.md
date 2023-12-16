@@ -27,7 +27,26 @@
 - ~~Add a consistent background for light and dark~~
 - ~~Modularize config files~~
 
-# Markdown Syntax Guide
+# Markdown Syntax Reference
+
+- Unordered list item
+    - Indented list item
+
+---
+
+*Italicized text*
+**Bold text**
+***Bold and italicized text***
+
+---
+
+> Blockquotes
+
+> A blockquotes paragraph
+>
+> .
+
+---
 
 # Heading level 1
 ## Heading level 2
@@ -36,11 +55,13 @@
 ##### Heading level 5
 ###### Heading level 6
 
+---
 
 <p>This is a paragraph
 </p>
 
+---
 
-<p>This is a paragraph.<br>
-    It also has a line break in it.</p>
+
+<p>This is a paragraph.<br> It also has a line break in it.</p>
 
