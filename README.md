@@ -35,10 +35,18 @@
 
 ## Markdown Syntax Reference
 
-- Unordered list item
-    - Indented list item
+<br>
 
----
+A link [kong4ndrew](https://github.com/kong4ndrew)
+
+<br>
+
+- Unordered list item
+- Another one
+    - Indented list item
+    - Another one
+
+<br>
 
 *Italicized text* <br>
 **Bold text** <br>
