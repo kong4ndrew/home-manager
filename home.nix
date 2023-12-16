@@ -108,263 +108,81 @@ home.file = {
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
-#===-===-===~/.config/nvim/lua/andrewkong/...===-===-===-#
+#===-===-===~/.config/nvim/lua/andrewkong/...-===-===-===-#
 
            #---------- init.lua ----------#
            #                              #
-    ".config/nvim/lua/andrewkong/init.lua".text = ''
-        require('andrewkong.remaps')
-        require('andrewkong.set')
-    '';
+    ".config/nvim/lua/andrewkong/init.lua".source = ./nvim/lua/andrewkong/init.lua;
            #                              #
            #------------------------------#
 
            #--------- remaps.lua ---------#
            #                              #
-    ".config/nvim/lua/andrewkong/remaps.lua".text = ''
-        vim.g.mapleader = ' '
-        vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
-
-        vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")                  -- When in visual mode, 'J' will move the selected chunk down
-        vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")                  -- When in visual mode, 'K' will move the selected chunk up
-
-        vim.keymap.set('n', 'J'    , 'mzJ`z')                         -- Joining lines will keep cursor where it originally was. (mark 'z' + 'J' + return back to mark 'z')
-        vim.keymap.set('n', '<C-d>', '<C-d>M')                        -- <C-d> will keep the cursor in the middle of the screen (<C-d> + 'M')
-        vim.keymap.set('n', '<C-u>', '<C-u>M')                        -- <C-u> will keep the cursor in the middle of the screen (<C-u> + 'M')
-        vim.keymap.set('n', '<C-f>', '<C-f>M')                        -- <C-f> will keep the cursor in the middle of the screen (<C-f> + 'M')
-        vim.keymap.set('n', '<C-b>', '<C-b>M')                        -- <C-b> will keep the cursor in the middle of the screen (<C-b> + 'M')
-        vim.keymap.set('n', '<C-m>', '<C-e>M')                        -- <C-m> will also keep the cursor in the middle of the screen ('<C-e>' + 'M')
-        vim.keymap.set('n', '<C-y>', '<C-y>M')                        -- <C-y> will also keep the cursor in the middle of the screen ('<C-y>' + 'M')
-        vim.keymap.set('n', 'n'    , 'nzzzv')                         -- When searching, keeps cursor in the middle of the screen
-        vim.keymap.set('n', 'N'    , 'Nzzzv')                         -- When searching, keeps cursor in the middle of the screen
-
-        vim.keymap.set('x', '<leader>p', '\"_dP')                     -- When pasting over something, don't replace vim clipboard with whatever was just replaced
-
-        vim.keymap.set('n', '<leader>y', '\"+y')                      -- <leader>(yanks) will copy to system clipboard
-        vim.keymap.set('v', '<leader>y', '\"+y')
-        vim.keymap.set('n', '<leader>Y', '\"+Y')
-
-        vim.keymap.set('n', '<leader>d', '\"_d')                      -- <leader>(deletes) will not copy to vim clipboard
-        vim.keymap.set('v', '<leader>d', '\"_d')
-        vim.keymap.set('n', '<leader>D', '\"_D')                      
-        vim.keymap.set('n', '<leader>c', '\"_c')                      -- <leader>(changes) will not copy to vim clipboard
-        vim.keymap.set('n', '<leader>C', '\"_C')                      
-
-        vim.keymap.set('n', 'Q', '<nop>')
-
-        vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')              -- Quick fix naviation-related
-        vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
-        vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz')
-        vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
-
-        vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- Incrementally changes every instance of the word your cursor is on
-        vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })              -- Sets execute permission on the current file
-
-        vim.keymap.set('n', '`.'   , '`.zz')                             -- Jumping to last change will position the cursor in the middle of the screen
-        vim.keymap.set('n', "'."   , "'.zz")
-        vim.keymap.set('n', '<C-o>', '<C-o>zz')                          -- Jumping to previous/next jumps will position the cursor in the middle of the screen
-        vim.keymap.set('n', '<C-i>', '<C-i>zz')
-    '';
+    ".config/nvim/lua/andrewkong/remaps.lua".source = ./nvim/lua/andrewkong/remaps.lua;
            #                              #
            #------------------------------#
 
            #---------- set.lua -----------#
            #                              #
-    ".config/nvim/lua/andrewkong/set.lua".text = ''
-        vim.opt.nu             = true
-        vim.opt.relativenumber = true
-
-        vim.opt.tabstop        = 4
-        vim.opt.shiftwidth     = 4
-        vim.opt.smarttab       = false                                -- To tab 4 spaces but delete 1, set smarttab = false and softtabstop = 0 
-        vim.opt.expandtab      = true
-        
-        vim.opt.smartindent    = false                                -- Enabling this causes causes the closing brace to start one level shifted right for some reason
-        
-        vim.opt.wrap           = false
-
-        vim.opt.swapfile       = true
-        vim.opt.backup         = false                                -- By default backup = false and writebackup = true...
-        vim.opt.undodir        = os.getenv('HOME') .. "/.vim/undodir" -- In Lua, .. is the string concatenation operator
-        vim.opt.undofile       = true
-
-        vim.opt.hlsearch       = true                                 -- Prevent search highlights from persisting 
-        vim.opt.incsearch      = true                                 -- Use incremental search with regex to search complex entries!
-
-        vim.opt.termguicolors  = true
-
-        vim.opt.scrolloff      = 0                                    -- When scrolling with cursor, at least 'x' number of rows will be left between cursor and screen
-        vim.opt.signcolumn     = "yes"                                -- A dedicated column for debugging signs etc.
-        vim.opt.isfname:append("@-@")                                 -- This allows vim to operate on files that have @ in their file name.
-        
-        vim.opt.updatetime     = 50
-
-        vim.opt.foldmethod     = 'expr'                               -- Vim will scan each line for the provided definition of 'foldexpr'
-        vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'         -- Treesitter's foldexpr definitions
-        vim.opt.foldenable     = false                                -- Folds are disabled at startup
-
-        vim.opt.cursorline     = true                                 -- Enable cursorline highlights
-        vim.opt.cursorlineopt  = 'number'                             -- Set cursorline highlight option to just the line number of the cursor
-
-        vim.g.mapleader        = ' '
-    '';
+    ".config/nvim/lua/andrewkong/set.lua".source = ./nvim/lua/andrewkong/set.lua;
            #                              #
            #------------------------------#
 
-#===-===-===-===-===-===-===-===-===-===-===-===-===-===-#
+#-===-===-===-===-===-===-===-===-===-===-===-===-===-===-#
 
 #===-===-===~/.config/nvim/after/plugin/...===-===-===-===#
 
+           #----------- lsp.lua ----------#
+           #                              #
+    ".config/nvim/after/plugin/lsp.lua".source = ./nvim/after/plugin/lsp.lua;
+           #                              #
+           #------------------------------#
+
            #------- telescope.lua --------#
            #                              #
-    ".config/nvim/after/plugin/telescope.lua".text = ''
-        local builtin = require('telescope.builtin')
-
-        vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-        vim.keymap.set('n', '<C-p>'     , builtin.git_files, {})
-        vim.keymap.set('n', '<leader>ps', function()
-            builtin.grep_string({ search = vim.fn.input('Grep -| ') })
-        end)
-        vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
-    '';
+    ".config/nvim/after/plugin/telescope.lua".source = ./nvim/after/plugin/telescope.lua;
            #                              #
            #------------------------------#
 
            #-------- lualine.lua ---------#
            #                              #                                         
-    ".config/nvim/after/plugin/lualine.lua".text = ''
-        require('lualine').setup {
-            options = {
-                theme = 'dayfox',
-                --theme = 'tokyonight',
-                --theme = 'solarized_light',
-            },
-        } 
-    '';
+    ".config/nvim/after/plugin/lualine.lua".source = ./nvim/after/plugin/lualine.lua;
            #                              #
            #------------------------------#
 
            #-------- colors.lua ----------#
            #                              #
-    ".config/nvim/after/plugin/colors.lua".text = ''
-
-        -- In the future, add a way to reload lualine and kitty as well?
-        function colormoi(color)
-            color = color or 'dayfox'
-            vim.cmd.colorscheme(color)
-
-            vim.api.nvim_set_hl(0, "Normal", { bg = none })
-            vim.api.nvim_set_hl(0, "NormalFloat", { bg = none })
-
-        end
-
-        -- Nightfox configuration
-        require('nightfox').setup({
-            options = {
-                styles = {  
-                    comments  = "bold,italic",
-                    keywords  = "bold",
-                    types     = "bold",
-                    functions = "italic",
-                },
-            },
-        })
-
-        colormoi()
-    '';
+    ".config/nvim/after/plugin/colors.lua".source = ./nvim/after/plugin/colors.lua;
            #                              #
            #------------------------------#
 
            #------- treesitter.lua -------#
            #                              #
-    ".config/nvim/after/plugin/treesitter.lua".text = ''
-        require('nvim-treesitter.configs').setup({
-            highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = false,
-            },
-            indent = {
-                enable = true,
-            },
-        })
-    '';
+    ".config/nvim/after/plugin/treesitter.lua".source = ./nvim/after/plugin/treesitter.lua;
            #                              #
            #------------------------------#
 
            #-------- harpoon.lua ---------#
            #                              #
-    ".config/nvim/after/plugin/harpoon.lua".text = ''
-        local harpoon = require('harpoon')
-
-        harpoon:setup()
-
-        vim.keymap.set('n', '<leader>a', function() harpoon:list():append() end)
-        vim.keymap.set('n', '<C-e>'    , function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-
-        vim.keymap.set('n', '<C-h>'    , function() harpoon:list():select(1) end)
-        vim.keymap.set('n', '<C-n>'    , function() harpoon:list():select(2) end)
-        vim.keymap.set('n', '<C-l>'    , function() harpoon:list():select(3) end)
-        vim.keymap.set('n', '<C-.>'    , function() harpoon:list():select(4) end)
-    '';
+    ".config/nvim/after/plugin/harpoon.lua".source = ./nvim/after/plugin/harpoon.lua;
            #                              #
            #------------------------------#
 
            #-------- undotree.lua --------#
            #                              #
-    ".config/nvim/after/plugin/undotree.lua".text = ''
-        vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
-    '';
+    ".config/nvim/after/plugin/undotree.lua".source = ./nvim/after/plugin/undotree.lua;
            #                              #
            #------------------------------#
 
            #-------- fugitive.lua --------#
            #                              #
-    ".config/nvim/after/plugin/fugitive.lua".text = ''
-        vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
-    '';
+    ".config/nvim/after/plugin/fugitive.lua".source = ./nvim/after/plugin/fugitive.lua;
            #                              #
            #------------------------------#
 
            #------- indentline.lua -------#
            #                              #
-    ".config/nvim/after/plugin/indentline.lua".text = ''
-        require('ibl').setup({
-            indent = { char = '┊'},
-            scope = { enabled = false },
-        })
-    '';
-           #                              #
-           #------------------------------#
-
-           #----------- lsp.lua ----------#
-           #                              #
-    ".config/nvim/after/plugin/lsp.lua".text = ''
-        local lsp_zero = require('lsp-zero')
-        
-        -- Setup keybindings only when a language server is attached
-        lsp_zero.on_attach(function(client, bufnr)
-            local opts = { buffer = bufnr, remap = false }
-
-            vim.keymap.set('n', 'gd'         , function() vim.lsp.buf.definition() end      , opts)
-            vim.keymap.set('n', 'K'          , function() vim.lsp.buf.hover() end           , opts)
-            vim.keymap.set('n', '<leader>vws', function() vim.lsp.buf.workspace_symbol() end, opts)
-            vim.keymap.set('n', '<leader>vd' , function() vim.diagnostic.open_float() end   , opts)
-            vim.keymap.set('n', '[d'         , function() vim.diagnostic.goto_next() end    , opts)
-            vim.keymap.set('n', ']d'         , function() vim.diagnostic.goto_prev() end    , opts)
-            vim.keymap.set('n', '<leader>vca', function() vim.lsp.buf.code_action() end     , opts)
-            vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end      , opts)
-            vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end          , opts)
-            vim.keymap.set('i', '<C-h>'      , function() vim.lsp.buf.signature_help() end  , opts)
-
-        end)
-
-        -- Use :LspZeroViewConfigSource sourcekit to see config options!
-        require('lspconfig').sourcekit.setup({ })
-        require('lspconfig').lua_ls.setup({ })
-        require('lspconfig').nixd.setup({ })
-        require('lspconfig').bashls.setup({ })
-
-        lsp_zero.setup_servers({ 'sourcekit', 'lua_ls', 'nixd', 'bashls' }) '';
+    ".config/nvim/after/plugin/indentline.lua".source = ./nvim/after/plugin/indentline.lua;
            #                              #
            #------------------------------#
 
@@ -401,7 +219,7 @@ programs.zsh = {
     enableCompletion = true;
     initExtra        = "
         # Sourcing p10k.zsh for powerlevel10k
-        [[ ! -f ${./p10k.zsh} ]] || source ${./p10k.zsh} 
+        [[ ! -f ${./zsh/p10k.zsh} ]] || source ${./zsh/p10k.zsh} 
 
         # Remove delay in registering ESC
         KEYTIMEOUT=1
@@ -523,6 +341,8 @@ programs.neovim = {
             sql
             markdown
             markdown_inline
+            xml
+            yaml
           ]);
           type   = "lua";
         }
