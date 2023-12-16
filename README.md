@@ -1,6 +1,15 @@
 # Setup
 
+#### 1. Install Nix
 
+Install the Nix Installer from [Determinate Systems](https://https://zero-to-nix.com/start/install)
+Enter password when it wants to sudo
+Confirm Y to proceed with installation.
+Restart terminal and confirm Nix installed with 
+> nix doctor
+> /nix/nix-installer self-test
+
+#### 2. 
 
 # To-do
 
@@ -31,13 +40,12 @@
 <br>
 <br>
 <br>
+
+## Quick Markdown Syntax Reference
+
 <br>
 
-## Markdown Syntax Reference
-
-<br>
-
-A link [kong4ndrew](https://github.com/kong4ndrew)
+A link [kong4ndrew](https://github.com/kong4ndrew/config)
 
 <br>
 
