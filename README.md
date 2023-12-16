@@ -27,7 +27,7 @@
 - ~~Add a consistent background for light and dark~~
 - ~~Modularize config files~~
 
-# Markdown Syntax Reference
+### Markdown Syntax Reference
 
 - Unordered list item
     - Indented list item
