@@ -50,11 +50,11 @@ Now do the same for the flake.nix file.<br>
 
 ```vim
 
-:%s/andrewkong/yourUsername/g # In this file, find all instances of 'andrewkong' and replace it with 'yourUsername'
+:%s/andrewkong/yourUsername/g " In this file, find all instances of 'andrewkong' and replace it with 'yourUsername'
 
-:w                            # Write (Save)
+:w                            " Write (Save)
 
-:e flake.nix                  # Edit flake.nix
+:e flake.nix                  " Edit flake.nix
 
 :%s/andrewkong/yourUsername/g 
 
