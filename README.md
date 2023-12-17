@@ -7,7 +7,7 @@ Enter password when it wants to sudo.<br>
 Confirm Y to proceed with installation.<br>
 Restart terminal and confirm Nix installed with:<br>
 
-```bash
+```zsh
 nix doctor
 
 /nix/nix-installer self-test
@@ -20,7 +20,7 @@ If you don't already have one, create a .config folder<br>.
 Set your working directory to .config/.<br>
 Clone this repo into it.
 
-```bash
+```zsh
 
 cd ~
 
@@ -30,9 +30,36 @@ nix run nixpkgs#git clone https://github.com/kong4ndrew/home-manager
 
 ```
 
-#### 3. Activate Home-manager
+#### 3. Change username and home directory name
+
+In your terminal, change working directory into ~/.config/home-manager<br>
+Open home.nix file with vim.<br>
+Find and replace 'andrewkong' with your computer's username.<br>
+Find where it says `username = ...` and `homeDirectory = ...`.<br>
+Confirm this is correct for your computer.<br>
+Now do the same for the flake.nix file.<br>
+*Note `:` is how you enter commands when in vim or neovim.*
 
 ```bash
+cd ~/.config/home-manager
+
+vim home.nix
+
+:%s/andrewkong/yourUsername/g # In this file, find all instances of 'andrewkong' and replace it with 'yourUsername'.
+
+:w # Save
+
+:e flake.nix
+
+:%s/andrewkong/yourUsername/g 
+
+:w
+
+```
+
+#### 3. Activate Home-manager
+
+```zsh
 
 nix run home-manager/master -- switch --flake ~/.config/home-manager
 
@@ -47,6 +74,8 @@ Now open your home directory on Finder with `⌘ + ⇧ + h`(Command + Shift + H)
 Navigate to the Applications/Home Manager Apps folder within your home directory.<br>
 You should see kitty as an application alias. Open it and right-click on the icon in the dock,<br>
     choosing `Options -> Keep in Dock` to keep it in your dock.
+
+#### 5. Next steps
 
 
 # To-do
