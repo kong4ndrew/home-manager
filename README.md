@@ -109,8 +109,8 @@ home-manager generations                             # 2023-12-16 12:00 : id 1 -
 
 ```
 
-##### After performing system updates, your zshenv, located in /etc/zshenv might get replaced and Nix might not work.<br>
-##### In that case, Nix Installer has a dedicated command to get it working again: 
+##### After performing system updates, your zshenv, located in /etc/zshenv might get replaced and Nix might not work.<br> 
+In that case, Nix Installer has a dedicated command to get it working again: 
 
 ```nix
 
