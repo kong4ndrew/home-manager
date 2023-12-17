@@ -3,7 +3,7 @@
 #### 1. Install Nix
 
 Install the Nix Installer from [Determinate Systems](https://https://zero-to-nix.com/start/install)<br>
-Enter password when it wants to sudo<br>
+Enter password when it wants to sudo.<br>
 Confirm Y to proceed with installation.<br>
 Restart terminal and confirm Nix installed with:<br>
 
@@ -16,22 +16,37 @@ nix doctor
 #### 2. Clone this repository
 
 Change directory into home directory.<br>
-If you have already a .config folder in your home directory, rename it.<br>
-If no results turn up when you `ls grep`, you should be good to go.<br>
+If you don't already have one, create a .config folder<br>.
+Set your working directory to .config/.<br>
+Clone this repo into it.
 
 ```bash
+
 cd ~
 
-ls -a | grep '.config'
+mkdir .config && cd .config
+
+nix run nixpkgs#git clone https://github.com/kong4ndrew/home-manager
+
 ```
 
-Clone this repo into your home directory
+#### 3. Activate Home-manager
 
 ```bash
-nix run nixpkgs#git clone https://github.com/kong4ndrew/.config
+
+nix run home-manager/master -- switch --flake ~/.config/home-manager
+
 ```
 
-#### 3. Switch into your first home-manager generation
+#### 4. Setup kitty as a GUI application
+
+Reboot your computer.<br>
+Open terminal and run `kitty` as a command.<br>
+It should open an instance of kitty. Now exit with `exit`.<br>
+Now open your home directory on Finder with `⌘ + ⇧ + h`(Command + Shift + H).<br>
+Navigate to the Applications/Home Manager Apps folder within your home directory.<br>
+You should see kitty as an application alias. Open it and right-click on the icon in the dock,<br>
+    choosing `Options -> Keep in Dock` to keep it in your dock.
 
 
 # To-do
