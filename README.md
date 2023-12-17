@@ -2,9 +2,9 @@
 
 #### 1. Install Nix
 
-Install the Nix Installer from [Determinate Systems](https://https://zero-to-nix.com/start/install)<br>
-Enter password when it wants to sudo.<br>
-Confirm Y to proceed with installation.<br>
+Install the Nix Installer from [Determinate Systems](https://https://zero-to-nix.com/start/install).<br>
+Enter your computer's password when it wants to sudo.<br>
+Confirm `Y` to proceed with installation.<br>
 Restart terminal and confirm Nix installed with:<br>
 
 ```zsh
@@ -16,9 +16,9 @@ nix doctor
 #### 2. Clone this repository
 
 Change directory into home directory.<br>
-If you don't already have one, create a .config folder<br>.
+If you don't already have one, create a `.config` folder.<br>
 Set your working directory to .config/.<br>
-Clone this repo into it.
+Clone this Github repo into it.
 
 ```zsh
 
@@ -32,8 +32,8 @@ nix run nixpkgs#git clone https://github.com/kong4ndrew/home-manager
 
 #### 3. Change username and home directory name
 
-In your terminal, change working directory into ~/.config/home-manager<br>
-Open home.nix file with vim.<br>
+In your terminal, change working directory into `~/.config/home-manager`<br>
+Open `home.nix` file with vim.<br>
 Find and replace 'andrewkong' with your computer's username.<br>
 Find where it says `username = ...` and `homeDirectory = ...`.<br>
 Confirm this is correct for your computer.<br>
@@ -43,13 +43,13 @@ Now do the same for the flake.nix file.<br>
 ```bash
 cd ~/.config/home-manager
 
-vim home.nix
+vim home.nix                  # Open home.nix with Vim
 
-:%s/andrewkong/yourUsername/g # In this file, find all instances of 'andrewkong' and replace it with 'yourUsername'.
+:%s/andrewkong/yourUsername/g # In this file, find all instances of 'andrewkong' and replace it with 'yourUsername'
 
-:w # Save
+:w                            # Write (Save)
 
-:e flake.nix
+:e flake.nix                  # Edit flake.nix
 
 :%s/andrewkong/yourUsername/g 
 
