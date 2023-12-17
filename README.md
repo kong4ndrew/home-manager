@@ -1,6 +1,7 @@
 # Setup
 
-⭐ Quickly get a working configuration of Nix, Home-manager, kitty, and Neovim up and running ⭐ 
+❗WARNING: Nix is highly addictive and sustained use may conjure up thoughts on how to declaratively configure one's life. Do NOT țʯؼย🭍🭌...
+⭐ Anyway, let's get a working configuration of [Nix, Home-manager, kitty, and Neovim] up and running.
 
 #### 1. Install Nix
 
