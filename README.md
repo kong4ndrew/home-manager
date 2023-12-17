@@ -58,7 +58,7 @@ Now do the same for the flake.nix file.<br>
 
 :%s/andrewkong/yourUsername/g 
 
-:w
+:wq                           " Write and quit
 
 ```
 
@@ -82,7 +82,7 @@ Open it and right-click on the icon in the dock, choosing `Options -> Keep in Do
 
 #### 5. Switching, rollbacks, system updates, flake updates, garbage collector etc.
 
-After modifying configuration or declaring desired installed packages on your home.nix, you can activate it by:
+##### After modifying configuration or declaring desired installed packages on your home.nix, you can activate it by:
 
 ```nix
 
@@ -99,7 +99,7 @@ home-manager switch --flake . # (If you are already cd'ed into ~/.config/home-ma
 ```
 
 
-If you messed something up and want to rollback to a previous home-manager generation:
+##### If you messed something up and want to rollback to a previous home-manager generation:
 
 ```nix
 
@@ -109,15 +109,15 @@ home-manager generations                             # 2023-12-16 12:00 : id 1 -
 
 ```
 
-After performing system updates, your zshenv, located in /etc/zshenv might get replaced and Nix might not work.<br>
-In that case, Nix Installer has a dedicated command: 
+##### After performing system updates, your zshenv, located in /etc/zshenv might get replaced and Nix might not work.<br>
+##### In that case, Nix Installer has a dedicated command to get it working again: 
 
 ```nix
 
 /nix/nix-installer repair
 
 ```
-To update dependencies and packages:
+##### To update dependencies and packages:
 
 ```nix
 
@@ -128,7 +128,7 @@ nix flake update              # Note this only updates your flake.lock, but will
 home-manager switch --flake . # Switching into your flake with home-manager will activate it
 
 ```
-To remove home-manager generations and garbage collect unused binaries/packages/environments:
+##### To remove home-manager generations and garbage collect unused binaries/packages/environments:
 
 ```nix
 
