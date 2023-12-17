@@ -45,9 +45,8 @@ vim home.nix                  # Open home.nix with Vim
 ```
 
 Find and replace 'andrewkong' with your computer's username.<br>
-Find where it says `username = ...` and `homeDirectory = ...`.<br>
-Confirm this is correct for your computer.<br>
-Now do the same for the flake.nix file.<br>
+Find where it says `username = ...` and `homeDirectory = ...` and confirm this is correct for your computer.<br>
+Now do the find and replace of usernames for the flake.nix file as well.<br>
 *Note `:` is how you begin a command in vim or neovim.*
 
 ```vim
@@ -182,9 +181,6 @@ home-manager uninstall       # Uninstall home-manager as a user-level config/pac
 - ~~Modularize config files~~
 <br>
 <br>
-<br>
-<br>
-<br>
 
 ## Quick Markdown Syntax Reference
 
@@ -204,6 +200,7 @@ A link [kong4ndrew](https://github.com/kong4ndrew/config)
 *Italicized text* <br>
 **Bold text** <br>
 ***Bold and italicized text*** <br>
+~~Strikethrough~~
 
 <br>
 
@@ -228,7 +225,6 @@ A link [kong4ndrew](https://github.com/kong4ndrew/config)
 </p>
 
 <br>
-
 
 <p>This is a paragraph.<br> It also has a line break in it.</p>
 
