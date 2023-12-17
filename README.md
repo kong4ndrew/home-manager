@@ -80,9 +80,78 @@ Navigate to the `Applications/Home Manager Apps` folder within your home directo
 You should see kitty as an application alias.<br>
 Open it and right-click on the icon in the dock, choosing `Options -> Keep in Dock` to keep it in your dock.
 
-#### 5. Uninstall
+#### 5. Switching, rollbacks, system updates, flake updates, garbage collector etc.
+
+After modifying configuration or declaring desired installed packages on your home.nix, you can activate it by:
+
+```nix
+
+home-manager switch --flake ~/.config/home-manager
+
+# or
+
+hm                            # (A shell alias that was set in home.nix)
+
+# or 
+
+home-manager switch --flake . # (If you are already cd'ed into ~/.config/home-manager)
 
 ```
+
+
+If you messed something up and want to rollback to a previous home-manager generation:
+
+```nix
+
+home-manager generations                             # 2023-12-16 12:00 : id 1 --> /nix/store/someHash-home-manager-generation
+
+/nix/store/someHash-home-manager-generation/activate # Copy the path of the generation you want to rollback to and append 'activate'.
+
+```
+
+After performing system updates, your zshenv, located in /etc/zshenv might get replaced and Nix might not work.<br>
+In that case, Nix Installer has a dedicated command: 
+
+```nix
+
+/nix/nix-installer repair
+
+```
+To update dependencies and packages:
+
+```nix
+
+cd ~/.config/home-manager     # cd into wherever your flake.nix file is
+
+nix flake update              # Note this only updates your flake.lock, but will NOT activate it
+
+home-manager switch --flake . # Switching into your flake with home-manager will activate it
+
+```
+To remove home-manager generations and garbage collect unused binaries/packages/environments:
+
+```nix
+
+home-manager generations                   # List home-manager generations
+
+home-manager remove-generations $(seq x y) # Remove whichever generations you want. 
+                                           # To remove a whole sequence of generations from 'x' to 'y', replace x and y to select desired range.
+
+nix store gc                               # Activate garbage collection on your current Nix store.
+
+```
+
+
+#### 6. Uninstall
+
+You may see a few nix-related folders lying around, but they are harmless.
+Whether you choose to delete them or not, it won't matter.
+
+```nix
+
+home-manager uninstall       # Uninstall home-manager as a user-level config/package manager
+
+/nix/nix-installer uninstall # Uninstall nix as a global package manager
 
 ```
 
