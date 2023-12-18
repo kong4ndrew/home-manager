@@ -1,7 +1,7 @@
 # Setup
 
-❗WARNING: Nix is highly addictive and sustained use may raise thoughts on declaratively configuring life. Do NOT țᚴꃢʯؼย...<br><br>
-⭐ Alright, let's go ahead and get a working configuration of [Nix, Home-manager, kitty, and Neovim].
+❗WARNING: Nix is highly addictive and sustained use may provoke thoughts on declaratively configuring life. Do NOT țᚴꃢʯؼย...<br><br>
+⭐ Alright, let's go ahead and get a working configuration of [Nix, Home-manager, kitty, and Neovim] on your **macOS** system.
 
 #### 1. Install Nix
 
@@ -61,6 +61,8 @@ vim home.nix                  # Open home.nix with Vim
 :%s/andrewkong/yourUsername/g 
 
 :wq                           " Write and quit
+
+/loginExtra                   " Find where it says loginExtra and then customize your own ponysay login message inside the single quotes '...'
 
 ```
 
@@ -168,7 +170,7 @@ home-manager uninstall       # Uninstall home-manager as a user-level config/pac
 
  5. Add ability to run xcode projects from command-line?
 
- 6. Add welcome/setup instructions on the readme.
+ 6. 
 
  7. Add nvim-tree?
 
@@ -180,6 +182,7 @@ home-manager uninstall       # Uninstall home-manager as a user-level config/pac
 - ~~Add LSP support for other languages~~
 - ~~Add a consistent background for light and dark~~
 - ~~Modularize config files~~
+- Add welcome/setup instructions on the readme.
 <br>
 <br>
 

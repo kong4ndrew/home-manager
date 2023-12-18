@@ -35,4 +35,6 @@ vim.opt.foldenable     = false                                -- Folds are disab
 vim.opt.cursorline     = true                                 -- Enable cursorline highlights
 vim.opt.cursorlineopt  = 'number'                             -- Set cursorline highlight option to just the line number of the cursor
 
+vim.opt.showtabline    = 2                                    -- Always display tabline
+
 vim.g.mapleader        = ' '

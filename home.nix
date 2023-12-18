@@ -268,7 +268,7 @@ programs.kitty = {
         background_blur       = 64;
         background_opacity    = "1.0";
         background_tint       = 1;
-        background            = "#ffffff";
+        background            = "#f8f4f0";
 #        background            = "#15202B";
     };
 };
@@ -367,13 +367,10 @@ programs.neovim = {
           type   = "lua";
         }
         {
-          plugin = mason-lspconfig-nvim;
+          plugin = luasnip;
           type   = "lua";
         }
-        {
-          plugin = mason-nvim;
-          type   = "lua";
-        }
+
 
     ]; 
     extraPackages = with pkgs; [

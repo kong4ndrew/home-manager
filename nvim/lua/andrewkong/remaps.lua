@@ -1,13 +1,14 @@
 -- Keymaps --
 
 vim.g.mapleader = ' '
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)                 -- <leader>pv (for 'Project View'?) executes the :Ex command
+vim.keymap.set('n', '<leader>e', vim.cmd.Ex)                 -- <leader>pv (for 'Project View'?) executes the :Ex command
 vim.keymap.set('n', '<leader>re', vim.cmd.Rex)                -- <leader>re executes the :Re command
 
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")                  -- When in visual mode, 'J' will move the selected chunk down
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")                  -- When in visual mode, 'K' will move the selected chunk up
 
 vim.keymap.set('n', 'J'    , 'mzJ`z')                         -- Joining lines will keep cursor where it originally was. (mark 'z' + 'J' + return back to mark 'z')
+vim.keymap.set('v', 'y'    , 'mzy`z')                         -- Joining lines will keep cursor where it originally was. (mark 'z' + 'J' + return back to mark 'z')
 vim.keymap.set('n', '<C-d>', '<C-d>M')                        -- <C-d> will keep the cursor in the middle of the screen (<C-d> + 'M')
 vim.keymap.set('n', '<C-u>', '<C-u>M')                        -- <C-u> will keep the cursor in the middle of the screen (<C-u> + 'M')
 vim.keymap.set('n', '<C-f>', '<C-f>M')                        -- <C-f> will keep the cursor in the middle of the screen (<C-f> + 'M')
