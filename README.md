@@ -1,14 +1,14 @@
 # Setup
 
-❗WARNING: Nix is highly addictive and sustained use may conjure thoughts on declaratively configuring life. Do NOT țᚴꃢʯؼย<br><br>
-⭐ Anyway, let's get a working configuration of [Nix, Home-manager, kitty, and Neovim] up and running.
+❗WARNING: Nix is highly addictive and sustained use may raise thoughts on declaratively configuring life. Do NOT țᚴꃢʯؼย...<br><br>
+⭐ Alright, let's go ahead and get a working configuration of [Nix, Home-manager, kitty, and Neovim].
 
 #### 1. Install Nix
 
-Install the Nix Installer from [Determinate Systems](https://https://zero-to-nix.com/start/install).<br>
-Enter your computer's password when it wants to sudo.<br>
-Confirm `Y` to proceed with installation.<br>
-Restart terminal and confirm Nix installed with:<br>
+- Install the Nix Installer from [Determinate Systems](https://https://zero-to-nix.com/start/install).<br>
+- Enter your computer's password when it wants to sudo.<br>
+- Confirm `Y` to proceed with installation.<br>
+- Restart terminal and confirm Nix installed with:<br>
 
 ```nix
 nix doctor                   # [PASS] PATH contains only one nix version...
@@ -18,10 +18,10 @@ nix doctor                   # [PASS] PATH contains only one nix version...
 
 #### 2. Clone this repository
 
-Change directory into home directory.<br>
-If you don't already have one, create a `.config` folder.<br>
-Set your working directory to `.config/`.<br>
-Clone this Github repo into it.
+- Change directory into home directory.<br>
+- If you don't already have one, create a `.config` folder.<br>
+- Set your working directory to `.config/`.<br>
+- Clone this Github repo into it.
 
 ```zsh
 
@@ -35,8 +35,8 @@ nix run nixpkgs#git clone https://github.com/kong4ndrew/home-manager
 
 #### 3. Change username and home directory name
 
-In your terminal, change working directory into `~/.config/home-manager`<br>
-Open `home.nix` file with vim.<br>
+- In your terminal, change working directory into `~/.config/home-manager`<br>
+- Open `home.nix` file with vim.<br>
 
 ```bash
 cd ~/.config/home-manager
@@ -45,9 +45,9 @@ vim home.nix                  # Open home.nix with Vim
 
 ```
 
-Find and replace 'andrewkong' with your computer's username.<br>
-Find where it says `username = ...` and `homeDirectory = ...` and confirm this is correct for your computer.<br>
-Now do the find and replace of usernames for the flake.nix file as well.<br>
+- Find and replace 'andrewkong' with your computer's username.<br>
+- Find where it says `username = ...` and `homeDirectory = ...` and confirm this is correct for your computer.<br>
+- Now do the find and replace of usernames for the flake.nix file as well.<br>
 *Note `:` is how you begin a command in vim or neovim.*
 
 ```vim
@@ -74,13 +74,13 @@ nix run home-manager/master -- switch --flake ~/.config/home-manager
 
 #### 4. Setup kitty as a GUI application
 
-Reboot your computer.<br>
-Open terminal and run `kitty` as a command.<br>
-It should open an instance of kitty. Now exit with `exit`.<br>
-Now open your home directory on Finder with `⌘ + ⇧ + h`(Command + Shift + h).<br>
-Navigate to the `Applications/Home Manager Apps` folder within your home directory.<br>
-You should see kitty as an application alias.<br>
-Open it and right-click on the icon in the dock, choosing `Options -> Keep in Dock` to keep it in your dock.
+- Reboot your computer.<br>
+- Open terminal and run `kitty` as a command.<br>
+- It should open an instance of kitty. Now exit with `exit`.<br>
+- Now open your home directory on Finder with `⌘ + ⇧ + h`(Command + Shift + h).<br>
+- Navigate to the `Applications/Home Manager Apps` folder within your home directory.<br>
+- You should see kitty as an application alias.<br>
+- Open it and right-click on the icon in the dock, choosing `Options -> Keep in Dock` to keep it in your dock.
 
 #### 5. Switching, rollbacks, system updates, flake updates, garbage collector etc.
 
@@ -145,8 +145,8 @@ nix store gc                               # Activate garbage collection on your
 
 #### 6. Uninstall
 
-You may see a few nix-related folders lying around, but they are harmless.
-Whether you choose to delete them or not, it won't matter.
+You may see a few nix-related folders lying around. 
+Whether you choose to delete them or not, it will not affect your system.
 
 ```nix
 
