@@ -186,6 +186,12 @@ home.file = {
            #                              #
            #------------------------------#
 
+           #--------- tabby.lua ----------#
+           #                              #
+    ".config/nvim/after/plugin/tabby.lua".source = ./nvim/after/plugin/tabby.lua;
+           #                              #
+           #------------------------------#
+
 #===-===-===-===-===-===-===-===-===-===-===-===-===-===-#
 
 
@@ -367,7 +373,7 @@ programs.neovim = {
           type   = "lua";
         }
         {
-          plugin = luasnip;
+          plugin = tabby-nvim;
           type   = "lua";
         }
 

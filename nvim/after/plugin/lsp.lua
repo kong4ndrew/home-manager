@@ -23,11 +23,11 @@ end)
 require('lspconfig').sourcekit.setup({ })
 require('lspconfig').nixd.setup({ })
 require('lspconfig').bashls.setup({ })
-require('lspconfig').lua_ls.setup {
+require('lspconfig').lua_ls.setup({
     settings = {
         diagnostics = {
             globals = { 'vim' }
         }
     }
-}
-lsp_zero.setup_servers({ 'sourcekit', 'lua_ls', 'nixd', 'bashls' })
+})
+-- lsp_zero.setup_servers({ 'sourcekit', 'lua_ls', 'nixd', 'bashls' })

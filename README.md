@@ -10,7 +10,7 @@
 - Confirm `Y` to proceed with installation.<br>
 - Restart terminal and confirm Nix installed with:<br>
 
-```nix
+```bash
 nix doctor                   # [PASS] PATH contains only one nix version...
 
 /nix/nix-installer self-test # INFO Successfully tested Nix install in all discovered shells. shells=["sh", "bash", "zsh"]
@@ -23,7 +23,7 @@ nix doctor                   # [PASS] PATH contains only one nix version...
 - Set your working directory to `.config/`.<br>
 - Clone this Github repo into it.
 
-```zsh
+```bash
 
 cd ~
 
@@ -68,7 +68,7 @@ vim home.nix                  # Open home.nix with Vim
 
 #### 3. Activate Home-manager
 
-```nix
+```bash
 
 nix run home-manager/master -- switch --flake ~/.config/home-manager
 
@@ -88,7 +88,7 @@ nix run home-manager/master -- switch --flake ~/.config/home-manager
 
 ##### After modifying configuration or declaring desired installed packages on your home.nix, you can activate it by:
 
-```nix
+```bash
 
 home-manager switch --flake ~/.config/home-manager
 
@@ -105,7 +105,7 @@ home-manager switch --flake . # (If you are already cd'ed into ~/.config/home-ma
 
 ##### If you messed something up and want to rollback to a previous home-manager generation:
 
-```nix
+```bash
 
 home-manager generations                             # 2023-12-16 12:00 : id 1 --> /nix/store/someHash-home-manager-generation
 
@@ -115,14 +115,14 @@ home-manager generations                             # 2023-12-16 12:00 : id 1 -
 
 ##### After performing system updates, your zshenv, located in /etc/zshenv might get replaced and Nix might not work. In that case, Nix Installer has a dedicated command to get it working again: 
 
-```nix
+```bash
 
 /nix/nix-installer repair
 
 ```
 ##### To update dependencies and packages:
 
-```nix
+```bash
 
 cd ~/.config/home-manager     # cd into wherever your flake.nix file is
 
@@ -133,7 +133,7 @@ home-manager switch --flake . # Switching into your flake with home-manager will
 ```
 ##### To remove home-manager generations and garbage collect unused binaries/packages/environments:
 
-```nix
+```bash
 
 home-manager generations                   # List home-manager generations
 
@@ -150,7 +150,7 @@ nix store gc                               # Activate garbage collection on your
 You may see a few nix-related folders lying around. 
 Whether you choose to delete them or not, it will not affect your system.
 
-```nix
+```bash
 
 home-manager uninstall       # Uninstall home-manager as a user-level config/package manager
 
