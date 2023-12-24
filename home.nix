@@ -376,6 +376,10 @@ programs.neovim = {
           plugin = tabby-nvim;
           type   = "lua";
         }
+        {
+          plugin = nvim-web-devicons;
+          type   = "lua";
+        }
 
 
     ]; 

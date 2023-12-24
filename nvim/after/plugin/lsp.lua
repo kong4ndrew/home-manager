@@ -19,6 +19,13 @@ vim.keymap.set('i', '<C-h>'      , function() vim.lsp.buf.signature_help() end  
 
 end)
 
+lsp_zero.set_sign_icons({
+    error = '',
+    warn  = '',
+    hint  = '',
+    info  = '',
+})
+
 -- Use :LspZeroViewConfigSource sourcekit to see config options!
 require('lspconfig').sourcekit.setup({ })
 require('lspconfig').nixd.setup({ })
