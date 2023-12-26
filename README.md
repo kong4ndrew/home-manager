@@ -1,7 +1,7 @@
 # Setup
 
 ❗WARNING: Nix is highly addictive and sustained use may provoke thoughts on declaratively configuring life. Do NOT țᚴꃢʯؼย...<br><br>
-⭐ Alright, let's go ahead and get a working configuration of [Nix, Home-manager, kitty, and Neovim] on your **macOS** system.
+⭐ Alright, let's go ahead and get a working configuration of [Nix, Home-manager, kitty, and Neovim] on your **Intel macOS** system.
 
 #### 1. Install Nix
 
@@ -160,21 +160,21 @@ home-manager uninstall       # Uninstall home-manager as a user-level config/pac
 
 # To-do
 
- 1. Build the flake and home.nix on another macOS/Linux machine to see if it's really reproducible with just a few nix commands
+1. How're you supposed to keep updated to this flake?
 
- 2. Customize night fox with slightly more contrasting colors.
+2. Add support in the flake for arm darwin and arm/intel linux
 
- 3. Add automatic light and dark mode feature
+3. Add automatic light and dark mode feature
+
+5. Add ability to run xcode projects from command-line?
+
+7. Add nvim-tree?
   
- 4. Look into cmp keybindings and see if that's something you want to customize
+4.
 
- 5. Add ability to run xcode projects from command-line?
+6. 
 
- 6. 
-
- 7. Add nvim-tree?
-
- 8. 
+8. 
 
 # Done
 
@@ -182,53 +182,7 @@ home-manager uninstall       # Uninstall home-manager as a user-level config/pac
 - ~~Add LSP support for other languages~~
 - ~~Add a consistent background for light and dark~~
 - ~~Modularize config files~~
-- Add welcome/setup instructions on the readme.
-<br>
-<br>
-
-## Quick Markdown Syntax Reference
-
-<br>
-
-A link [kong4ndrew](https://github.com/kong4ndrew/config)
-
-<br>
-
-- Unordered list item
-- Another one
-    - Indented list item
-    - Another one
-
-<br>
-
-*Italicized text* <br>
-**Bold text** <br>
-***Bold and italicized text*** <br>
-~~Strikethrough~~
-
-<br>
-
-> Blockquotes
-
-> A blockquotes paragraph
->
-> .
-
-<br>
-
-# Heading level 1
-## Heading level 2
-### Heading level 3
-#### Heading level 4
-##### Heading level 5
-###### Heading level 6
-
-<br>
-
-<p>This is a paragraph
-</p>
-
-<br>
-
-<p>This is a paragraph.<br> It also has a line break in it.</p>
-
+- ~Add welcome/setup instructions on the readme.~
+- ~Look into cmp keybindings and see if that's something you want to customize~
+- ~Build the flake and home.nix on another macOS/Linux machine to see if it's really reproducible with just a few nix commands~
+- ~Customize night fox with slightly more contrasting colors.~
