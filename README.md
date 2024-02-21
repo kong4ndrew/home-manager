@@ -160,7 +160,7 @@ home-manager uninstall       # Uninstall home-manager as a user-level config/pac
 
 # To-do
 
-1. How're you supposed to keep updated to this flake?
+1. Once you initialize the setup, how're you supposed to keep updated to this flake?
 
 2. Add support in the flake for arm darwin and arm/intel linux
 
@@ -170,7 +170,7 @@ home-manager uninstall       # Uninstall home-manager as a user-level config/pac
 
 7. Add nvim-tree?
   
-4.
+4. Add neomutt?
 
 6. 
 

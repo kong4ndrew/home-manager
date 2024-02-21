@@ -241,6 +241,7 @@ programs.zsh = {
     shellAliases = {
         hm     = "home-manager switch --flake ~/.config/home-manager";
         config = "cd ~/.config/home-manager && nvim home.nix";
+        so     = "cd ~/Documents/'Soteric 23-24' && nvim README.md";
     };
 
     loginExtra = "ponysay -b ascii -- '⭐ The Lord is FOR you and not AGAINST you! ⭐'";

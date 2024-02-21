@@ -32,6 +32,7 @@ require('nightfox').setup({
                 func     = "cyan",
                 operator = "black",
                 variable = "pink",
+                string   = "orange",
             },
             -- diag = {},
         },
