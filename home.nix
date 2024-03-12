@@ -84,6 +84,7 @@ home.packages = with pkgs; [
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+
 ];
 
 #HOME FILES=====================================================================================================================================#
