@@ -78,6 +78,7 @@ home.packages = with pkgs; [
 
     sf-mono-liga-bin
 
+    texliveFull
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -283,6 +284,19 @@ programs.kitty = {
 
 #===============================================================================================================================================#
 
+#ZATHURA==========================================================================================================================================#
+
+programs.zathura = {
+    enable = true;
+    package = pkgs.zathura;
+    options = {
+        default-bg = "#969696";
+    };
+    extraConfig = "set window-height 1000";
+};
+
+#===============================================================================================================================================#
+
 #NEOVIM=========================================================================================================================================#
 
 programs.neovim = {
@@ -351,6 +365,7 @@ programs.neovim = {
             markdown_inline
             xml
             yaml
+            latex
           ]);
           type   = "lua";
         }
@@ -380,6 +395,10 @@ programs.neovim = {
         }
         {
           plugin = nvim-web-devicons;
+          type   = "lua";
+        }
+        {
+          plugin = vimtex;
           type   = "lua";
         }
 
