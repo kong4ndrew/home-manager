@@ -1,7 +1,6 @@
 # Setup
 
-❗WARNING: Nix is highly addictive and sustained use may provoke thoughts on declaratively configuring life. Do NOT țᚴꃢʯؼย...<br><br>
-⭐ Alright, let's go ahead and get a working configuration of [Nix, Home-manager, kitty, and Neovim] on your **Intel macOS** system.
+⭐ Let's get a working configuration of [Nix, Home-manager, kitty, and Neovim] on your **Intel macOS** system.
 
 #### 1. Install Nix
 
