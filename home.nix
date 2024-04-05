@@ -194,6 +194,12 @@ home.file = {
            #                              #
            #------------------------------#
 
+           #--------- vimtex.lua ----------#
+           #                              #
+    ".config/nvim/after/plugin/vimtex.lua".source = ./nvim/after/plugin/vimtex.lua;
+           #                              #
+           #------------------------------#
+
 #===-===-===-===-===-===-===-===-===-===-===-===-===-===-#
 
 
@@ -247,6 +253,12 @@ programs.zsh = {
     };
 
     loginExtra = "ponysay -b ascii -- '⭐ The Lord is FOR you and not AGAINST you! ⭐'";
+
+    dirHashes = {
+        soteric = "$HOME/Documents/Soteric\ 23-24";
+        youth   = "$HOME/Documents/Youth";
+    };
+
 };
 
 
