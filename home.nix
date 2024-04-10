@@ -377,7 +377,6 @@ programs.neovim = {
             markdown_inline
             xml
             yaml
-            latex
           ]);
           type   = "lua";
         }

@@ -38,3 +38,4 @@ vim.opt.cursorlineopt  = 'both'                             -- Set cursorline hi
 vim.opt.showtabline    = 2                                    -- Always display tabline
 
 vim.g.mapleader        = ' '
+vim.opt.conceallevel   = 1                                    -- Concealment for markdown and LaTeX files
