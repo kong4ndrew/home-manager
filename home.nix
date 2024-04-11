@@ -250,6 +250,16 @@ programs.zsh = {
         hm     = "home-manager switch --flake ~/.config/home-manager";
         config = "cd ~/.config/home-manager && nvim home.nix";
         so     = "cd ~/Documents/'Soteric 23-24' && nvim README.md";
+        alg1   = "cd ~/Desktop/'Soteric 22-23' && zathura Alg1.pdf";
+        Alg1   = "cd ~/Desktop/'Soteric 22-23' && zathura Algebra1Answers.pdf";
+        alg2   = "cd ~/Desktop/'Soteric 22-23' && zathura Alg2.pdf";
+        Alg2   = "cd ~/Desktop/'Soteric 22-23' && zathura Algebra2Answers.pdf";
+        calc   = "cd ~/Desktop/'Soteric 22-23' && zathura Cal.pdf";
+        Calc   = "cd ~/Desktop/'Soteric 22-23' && zathura Cal10eAnswers.pdf";
+        geo    = "cd ~/Desktop/'Soteric 22-23' && zathura Geo.pdf";
+        Geo    = "cd ~/Desktop/'Soteric 22-23' && zathura GeometryAnswers.pdf";
+        phy    = "cd ~/Desktop/'Soteric 22-23' && zathura Alg1.pdf";
+        Phy    = "cd ~/Desktop/'Soteric 22-23' && zathura PhysicsAnswers.pdf";
     };
 
     loginExtra = "ponysay -b ascii -- '⭐ The Lord is FOR you and not AGAINST you! ⭐'";
@@ -257,6 +267,7 @@ programs.zsh = {
     dirHashes = {
         soteric = "$HOME/Documents/Soteric\ 23-24";
         youth   = "$HOME/Documents/Youth";
+        tb      = "$HOME/Desktop/Soteric\ 22-23";
     };
 
 };
