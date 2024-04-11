@@ -355,7 +355,7 @@ programs.neovim = {
           type   = "lua";
         }
         {
-          plugin = harpoon;
+          plugin = harpoon2;
           type   = "lua";
         }
         {
