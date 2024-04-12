@@ -269,7 +269,6 @@ programs.zsh = {
         youth   = "$HOME/Documents/Youth";
         tb      = "$HOME/Desktop/Soteric\ 22-23";
     };
-
 };
 
 
