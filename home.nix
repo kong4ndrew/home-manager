@@ -260,6 +260,8 @@ programs.zsh = {
         Geo    = "cd ~/Desktop/'Soteric 22-23' && zathura GeometryAnswers.pdf";
         phy    = "cd ~/Desktop/'Soteric 22-23' && zathura Alg1.pdf";
         Phy    = "cd ~/Desktop/'Soteric 22-23' && zathura PhysicsAnswers.pdf";
+        lat    = "cd ~/Documents/'Soteric 23-24/Latex Lesson Plans' && nvim template.tex";
+        Lat    = "cd ~/Documents/'Soteric 23-24/Latex Lesson Plans' && zathura template.pdf";
     };
 
     loginExtra = "ponysay -b ascii -- '⭐ The Lord is FOR you and not AGAINST you! ⭐'";
@@ -268,6 +270,7 @@ programs.zsh = {
         soteric = "$HOME/Documents/Soteric\ 23-24";
         youth   = "$HOME/Documents/Youth";
         tb      = "$HOME/Desktop/Soteric\ 22-23";
+        latx    = "$HOME/Documents/Soteric\ 23-24/Latex\ Lesson\ Plans";
     };
 };
 
@@ -314,7 +317,17 @@ programs.zathura = {
     options = {
         default-bg = "#969696";
     };
-    extraConfig = "set window-height 1000";
+
+    # Check man zathurarc for the config options
+    extraConfig = ''
+        set window-height         2000
+        set window-width          1000
+        set database              "sqlite"       # Otherwise causes warning to set database to sqlite everytime you open zathura
+        set statusbar-v-padding   5
+        set window-icon-document  true           # Setting icons don't appear to work
+        set window-title-basename true
+        set window-title-page     true
+    '';
 };
 
 #===============================================================================================================================================#
