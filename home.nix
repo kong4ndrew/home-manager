@@ -444,6 +444,7 @@ programs.neovim = {
       sourcekit-lsp           # Swift LSP
       lua-language-server     # Lua LSP
       nixd                    # Nix LSP
+      texlab                  # LaTeX LSP
       nodePackages.bash-language-server # Bash LSP
       nodePackages.npm         
       nodePackages.neovim

@@ -28,7 +28,7 @@ lsp_zero.set_sign_icons({
 })
 
 -- Use :LspZeroViewConfigSource sourcekit to see config options!
-lsp_zero.setup_servers({ 'sourcekit', 'nixd', 'bashls' })
+lsp_zero.setup_servers({ 'sourcekit', 'nixd', 'bashls', 'texlab'})
 lsp_zero.configure('lua_ls', {
     settings = {
         Lua = {
