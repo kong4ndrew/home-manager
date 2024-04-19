@@ -97,7 +97,7 @@ home.file = {
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
 
-    # # To source something like this you have to GIT ADD it! Nix takes into 
+    # # To source home-files, you have to STAGE IT IN GIT! Nix takes into 
     # # consideration the git index...I wasted so much time figuring that one out!!! 
     # # Also, the file must be in the same directory as home.nix and flake.nix. Using a
     # # higher-level path gives you an error and trying to reference the path is
@@ -194,9 +194,15 @@ home.file = {
            #                              #
            #------------------------------#
 
-           #--------- vimtex.lua ----------#
+           #--------- vimtex.lua ---------#
            #                              #
     ".config/nvim/after/plugin/vimtex.lua".source = ./nvim/after/plugin/vimtex.lua;
+           #                              #
+           #------------------------------#
+
+           #-------- luasnip.lua ---------#
+           #                              #
+    ".config/nvim/after/plugin/luasnip.lua".source = ./nvim/after/plugin/luasnip.lua;
            #                              #
            #------------------------------#
 
@@ -435,8 +441,18 @@ programs.neovim = {
           plugin = vimtex;
           type   = "lua";
         }
-
-
+        {
+          plugin = friendly-snippets;
+          type   = "lua";
+        }
+        {
+          plugin = cmp_luasnip;
+          type   = "lua";
+        }
+        {
+          plugin = lspkind-nvim;
+          type   = "lua";
+        }
     ]; 
     extraPackages = with pkgs; [
       ripgrep                 # telescope dependency
@@ -448,6 +464,7 @@ programs.neovim = {
       nodePackages.bash-language-server # Bash LSP
       nodePackages.npm         
       nodePackages.neovim
+      lua54Packages.jsregexp  # luasnip dependency but not working?
     ];
   };
 

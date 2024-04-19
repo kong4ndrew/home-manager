@@ -6,8 +6,6 @@ harpoon:setup()
 
 -- =======================Enable Telescope UI===============================
 
--- Remember to disable the <C-e> keymap that's using harpoon.ui and enable 
--- the one that uses telescope's ui
 
 -- local conf = require('telescope.config').values
 -- local function toggle_telescope(harpoon_files)
@@ -26,6 +24,8 @@ harpoon:setup()
 --     }):find()
 -- end
 
+   -- Remember to disable the <C-e> keymap that's using harpoon.ui and enable 
+   -- the one that uses telescope's ui
 -- vim.keymap.set('n', '<C-e>', function() toggle_telescope(harpoon:list()) end,
 -- { desc = 'Open harpoon window' })
 

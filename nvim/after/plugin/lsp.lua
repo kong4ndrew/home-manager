@@ -3,8 +3,9 @@
 local lsp_zero = require('lsp-zero')
 
 
--- Setup keybindings only when a language server is attached
-lsp_zero.on_attach(function(client, bufnr)
+-- Setup keybindings only when a language server is attached. Unnamed argument label for client
+-- in the on.attach function because it's not being used at the moment.
+lsp_zero.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set('n', 'gd'         , function() vim.lsp.buf.definition() end      , opts)
@@ -36,5 +37,74 @@ lsp_zero.configure('lua_ls', {
                 globals = {'vim'},
             }
         }
+    }
+})
+
+-- Once you declare cmp.setup, I think you have to manually set up everything related to
+-- autocomplete which was otherwise automatically done by lsp-zero. So yeah... keep that in mind.
+-- Also make sure to setup cmp after lsp-zero
+local cmp = require('cmp')
+local luasnip = require('luasnip')
+local lspkind = require('lspkind')                              -- For icons in the popup window
+
+cmp.setup({
+    window = {
+        completion    = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered()
+    },
+    snippet = {
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
+        end,
+    },
+    mapping = cmp.mapping.preset.insert{
+        ['<C-n>']       = cmp.mapping.select_next_item(),
+        ['<C-p>']       = cmp.mapping.select_prev_item(),
+        ['<C-S-Space>'] = cmp.mapping.complete(),               -- Trigger completion menu
+        ['<C-u>']       = cmp.mapping.scroll_docs(-4),          -- Scroll up the documentation window
+        ['<C-d>']       = cmp.mapping.scroll_docs(4),           -- Scroll up the documentation window
+        ['<C-y>']       = cmp.mapping.confirm({                 -- Confirm completion item
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+        }),
+        ['<Tab>'] = cmp.mapping(function(fallback)              -- Also allowing Tab to select next item or expand snippet
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.expand_or_locally_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+        ['<S-Tab>'] = cmp.mapping(function(fallback)            -- Also allowing S-Tab to select previous item or jump back
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.locally_jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+        ['<CR>'] = cmp.mapping(function(fallback)               -- Also allowing <CR> to confirm completion or expand snippet(?)
+            if cmp.visible() then
+                cmp.confirm({
+                    behavior = cmp.ConfirmBehavior.Replace,
+                    select = true
+                })
+            elseif luasnip.expand_or_locally_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
+    },
+    sources = {
+        { name = 'path' },
+        { name = 'nvim_lsp' },
+        { name = 'luasnip', keyword_length = 2 },                -- keyword_length is the number of characters needed to trigger autocomplete
+        { name = 'buffer' , keyword_length = 3 },
+    },
+    formatting = {
+        format = lspkind.cmp_format({ })
     }
 })
