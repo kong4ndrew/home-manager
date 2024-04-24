@@ -67,6 +67,7 @@ cmp.setup({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         }),
+
         ['<Tab>'] = cmp.mapping(function(fallback)              -- Also allowing Tab to select next item or expand snippet
             if cmp.visible() then
                 cmp.select_next_item()
@@ -76,6 +77,7 @@ cmp.setup({
                 fallback()
             end
         end, { 'i', 's' }),
+
         ['<S-Tab>'] = cmp.mapping(function(fallback)            -- Also allowing S-Tab to select previous item or jump back
             if cmp.visible() then
                 cmp.select_prev_item()
@@ -85,18 +87,19 @@ cmp.setup({
                 fallback()
             end
         end, { 'i', 's' }),
-        ['<CR>'] = cmp.mapping(function(fallback)               -- Also allowing <CR> to confirm completion or expand snippet(?)
-            if cmp.visible() then
-                cmp.confirm({
-                    behavior = cmp.ConfirmBehavior.Replace,
-                    select = true
-                })
-            elseif luasnip.expand_or_locally_jumpable() then
-                luasnip.expand_or_jump()
-            else
-                fallback()
-            end
-        end, { 'i', 's' }),
+
+--         ['<CR>'] = cmp.mapping(function(fallback)               -- Also allowing <CR> to confirm completion or expand snippet(?)
+--             if cmp.visible() then                               -- Don't enable this, it messes things up if you want to put a newline after expanding a snippet
+--                 cmp.confirm({
+--                     behavior = cmp.ConfirmBehavior.Replace,
+--                     select = true
+--                 })
+--             elseif luasnip.expand_or_locally_jumpable() then
+--                 luasnip.expand_or_jump()
+--             else
+--                 fallback()
+--             end
+--         end, { 'i', 's' }),
     },
     sources = {
         { name = 'path' },

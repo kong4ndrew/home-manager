@@ -66,6 +66,23 @@ ls.add_snippets('tex', {
         i(1),
     }))
 })
+--
+-- tk triggers \text{}
+ls.add_snippets('tex', {
+    s('tk', {
+        t('\\text{ '),
+        i(1),
+        t(' }'),
+    })
+})
+
+ls.add_snippets('tex', {
+    s('tbk', {
+        t('\\textbf{ '),
+        i(1),
+        t(' }'),
+    })
+})
 
 -- bk prepares \begin{environment} ... \end{environment}
 -- When using fmt, you must escape curly braces with an extra curly brace {} -> {{}}
@@ -127,4 +144,18 @@ ls.add_snippets('tex', {
     s('sol', {
         t('\\helvet{\\textcolor{NavyBlue}{SOLUTION}} \\normalfont \\hspace{1cm}')
     })
+})
+
+ls.add_snippets('tex', {
+    s('tsk', fmt(
+    [[
+    \begin{{tasks}}[label=({}), label-width={}cm]({})
+        \task {}
+    \end{{tasks}}
+    ]], {
+        i(1, '\\alph*'),
+        i(2, '0.5'),
+        i(3, '2'),
+        i(4),
+    }))
 })
