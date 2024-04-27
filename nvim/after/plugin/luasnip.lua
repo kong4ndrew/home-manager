@@ -70,17 +70,17 @@ ls.add_snippets('tex', {
 -- tk triggers \text{}
 ls.add_snippets('tex', {
     s('tk', {
-        t('\\text{ '),
+        t('\\text{'),
         i(1),
-        t(' }'),
+        t('}'),
     })
 })
 
 ls.add_snippets('tex', {
     s('tbk', {
-        t('\\textbf{ '),
+        t('\\textbf{'),
         i(1),
-        t(' }'),
+        t('}'),
     })
 })
 
@@ -109,7 +109,7 @@ ls.add_snippets('tex', {
 
 -- pfk triggers \left(\frac{}{}\right)
 ls.add_snippets('tex', {
-    s('pfk', fmt(
+    s('fpk', fmt(
     [[
     \left(\frac{{{}}}{{{}}}\right)
     ]], {
@@ -119,7 +119,7 @@ ls.add_snippets('tex', {
 
 -- bfk triggers \left[\frac{}{}\right]
 ls.add_snippets('tex', {
-    s('bfk', fmt(
+    s('fbk', fmt(
     [[
     \left[\frac{{{}}}{{{}}}\right]
     ]], {
@@ -157,5 +157,32 @@ ls.add_snippets('tex', {
         i(2, '0.5'),
         i(3, '2'),
         i(4),
+    }))
+})
+
+ls.add_snippets('tex', {
+    s('lk', fmt(
+    [[
+    \lim_{{{}}}
+    ]], {
+        i(1, 'n \\to \\infty'),
+    }))
+})
+
+ls.add_snippets('tex', {
+    s('sk', fmt(
+    [[
+    \sum_{{i={}}}^{{{}}}
+    ]], {
+        i(1), i(2, 'n')
+    }))
+})
+
+ls.add_snippets('tex', {
+    s('ik', fmt(
+    [[
+    \int_{{{}}}^{{{}}}{} \,{}
+    ]], {
+        i(1), i(2), i(3), i(4, 'dx')
     }))
 })

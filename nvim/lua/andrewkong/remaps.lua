@@ -26,9 +26,9 @@ vim.keymap.set('n', '<leader>Y', '\"+Y')
 
 vim.keymap.set('n', '<leader>d', '\"_d')                      -- <leader>(deletes) will not copy to vim clipboard
 vim.keymap.set('v', '<leader>d', '\"_d')
-vim.keymap.set('n', '<leader>D', '\"_D')                      
+vim.keymap.set('n', '<leader>D', '\"_D')
 vim.keymap.set('n', '<leader>c', '\"_c')                      -- <leader>(changes) will not copy to vim clipboard
-vim.keymap.set('n', '<leader>C', '\"_C')                      
+vim.keymap.set('n', '<leader>C', '\"_C')
 
 vim.keymap.set('n', 'Q', '<nop>')
 
