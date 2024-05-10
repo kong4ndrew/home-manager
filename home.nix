@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
 #SFMONO-NERD-FONT-LIGATURIZED===================================================================================================================#
@@ -11,7 +11,7 @@
 
 nixpkgs.overlays = [
     (final: prev: {
-        sf-mono-liga-bin = prev.stdenvNoCC.mkDerivation rec {
+        sf-mono-liga-bin = prev.stdenvNoCC.mkDerivation {
             pname = "sf-mono-liga-bin";
             version = "dev";
             src = inputs.sf-mono-liga-src;
@@ -79,6 +79,8 @@ home.packages = with pkgs; [
     sf-mono-liga-bin
 
     texliveFull
+
+    git
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
