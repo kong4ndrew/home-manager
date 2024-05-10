@@ -20,7 +20,7 @@
 
   };
 
-  outputs = { nixpkgs, home-manager, sf-mono-liga-src, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-darwin";
       pkgs   = nixpkgs.legacyPackages.${system};
