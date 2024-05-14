@@ -260,16 +260,20 @@ programs.zsh = {
         hm     = "home-manager switch --flake ~/.config/home-manager";
         config = "cd ~/.config/home-manager && nvim home.nix";
         so     = "cd ~/Documents/'Soteric 23-24' && nvim README.md";
-        alg1   = "cd ~/Desktop/'Soteric 22-23' && zathura Alg1.pdf";
-        Alg1   = "cd ~/Desktop/'Soteric 22-23' && zathura Algebra1Answers.pdf";
-        alg2   = "cd ~/Desktop/'Soteric 22-23' && zathura Alg2.pdf";
-        Alg2   = "cd ~/Desktop/'Soteric 22-23' && zathura Algebra2Answers.pdf";
-        calc   = "cd ~/Desktop/'Soteric 22-23' && zathura Cal.pdf";
-        Calc   = "cd ~/Desktop/'Soteric 22-23' && zathura Cal10eAnswers.pdf";
-        geo    = "cd ~/Desktop/'Soteric 22-23' && zathura Geo.pdf";
-        Geo    = "cd ~/Desktop/'Soteric 22-23' && zathura GeometryAnswers.pdf";
-        phy    = "cd ~/Desktop/'Soteric 22-23' && zathura Alg1.pdf";
-        Phy    = "cd ~/Desktop/'Soteric 22-23' && zathura PhysicsAnswers.pdf";
+        alg1   = "cd ~/Documents/textbooks && zathura alg1.pdf";
+        Alg1   = "cd ~/Documents/textbooks && zathura alg1Answers.pdf";
+        alg2   = "cd ~/Documents/textbooks && zathura alg2.pdf";
+        Alg2   = "cd ~/Documents/textbooks && zathura alg2Answers.pdf";
+        calc   = "cd ~/Documents/textbooks && zathura calc.pdf";
+        Calc   = "cd ~/Documents/textbooks && zathura calcAnswers.pdf";
+        geo    = "cd ~/Documents/textbooks && zathura geo.pdf";
+        Geo    = "cd ~/Documents/textbooks && zathura geoAnswers.pdf";
+        phy    = "cd ~/Documents/textbooks && zathura phy.pdf";
+        Phy    = "cd ~/Documents/textbooks && zathura phyAnswers.pdf";
+        pre    = "cd ~/Documents/textbooks && zathura pre.pdf";
+        Pre    = "cd ~/Documents/textbooks && zathura preAnswers.pdf";
+        stats  = "cd ~/Documents/textbooks && zathura stats.pdf";
+        Stats  = "cd ~/Documents/textbooks && zathura statsAnswers.pdf";
         lat    = "cd ~/Documents/'Soteric 23-24/Latex Lesson Plans' && nvim template.tex";
         Lat    = "cd ~/Documents/'Soteric 23-24/Latex Lesson Plans' && zathura template.pdf";
     };
@@ -347,6 +351,24 @@ programs.zathura = {
         set inputbar-bg           "#251101"
         set inputbar-fg           "#FCAB64"
     '';
+};
+
+#===============================================================================================================================================#
+
+#ZATHURA==========================================================================================================================================#
+
+programs.ripgrep = {
+    enable    = true;
+    arguments = [
+        "--hidden"
+        "--colors=line:fg:yellow"
+        "--colors=line:style:bold"
+        "--colors=path:fg:green"
+        "--colors=path:style:bold"
+        "--colors=match:fg:black"
+        "--colors=match:bg:yellow"
+        "--colors=match:style:nobold"
+    ];
 };
 
 #===============================================================================================================================================#
