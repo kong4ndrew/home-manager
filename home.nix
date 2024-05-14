@@ -81,6 +81,8 @@ home.packages = with pkgs; [
     texliveFull
 
     git
+
+    pdftk
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -323,7 +325,7 @@ programs.zathura = {
     enable = true;
     package = pkgs.zathura;
     options = {
-        default-bg = "#969696";
+        default-bg = "#d8e1e8";                  # Light pastel blue
     };
 
     # Check man zathurarc for the config options
@@ -335,6 +337,15 @@ programs.zathura = {
         set window-icon-document  true           # Setting icons don't appear to work
         set window-title-basename true
         set window-title-page     true
+        set font                  "Liga SFMono Nerd Font 12"
+        set guioptions            "sv"           # Show status-line and vertical scroll bar
+        set statusbar-bg          "#304674"      # Dark pastel blue
+        set index-bg              "#D8E1E8"
+        set index-fg              "#304674"
+        set index-active-bg       "#304674"
+        set index-active-fg       "#FAC898"
+        set inputbar-bg           "#251101"
+        set inputbar-fg           "#FCAB64"
     '';
 };
 
@@ -393,7 +404,7 @@ programs.neovim = {
           type   = "lua";
         }
         {
-          plugin = pkgs.vimPlugins.nvim-treesitter.withPlugins (p: with p; [
+          plugin = nvim-treesitter.withPlugins (p: with p; [
             c
             lua
             vim

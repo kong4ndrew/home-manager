@@ -157,6 +157,18 @@ home-manager uninstall       # Uninstall home-manager as a user-level config/pac
 
 ```
 
+#### 7. Checking Health
+
+```bash
+nix doctor                                                  # Basic nix installation check
+nix store optimise                                          # Replaces identical files in the store with hard links to a single instance
+nix store gc                                                # Garbage collect unused paths. Do this **before** removing generations in HM?
+nix store verify --all                                      # Verify the integrity of store paths
+nix store verify --store https://cache.nixos.org            # Get signatures from binary cache for untrusted paths
+nix store repair                                            # Repair store paths
+sqlite3 /nix/var/nix/db/db.sqlite 'pragma integrity_check'  # Checking the database through sqlite
+```
+
 # To-do
 
 1. Once you initialize the setup, how're you supposed to keep updated to this flake?
