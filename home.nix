@@ -83,6 +83,8 @@ home.packages = with pkgs; [
     git
 
     pdftk
+
+    pandoc
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -278,12 +280,12 @@ programs.zsh = {
         Lat    = "cd ~/Documents/'Soteric 23-24/Latex Lesson Plans' && zathura template.pdf";
     };
 
-    loginExtra = "ponysay -b ascii -- '⭐ The Lord is FOR you and not AGAINST you! ⭐'";
+    loginExtra = "ponysay -b ascii -W i '⭐ The Lord is FOR you and not AGAINST you! ⭐'";
 
     dirHashes = {
         soteric = "$HOME/Documents/Soteric\ 23-24";
         youth   = "$HOME/Documents/Youth";
-        tb      = "$HOME/Desktop/Soteric\ 22-23";
+        tb      = "$HOME/Documents/textbooks";
         latx    = "$HOME/Documents/Soteric\ 23-24/Latex\ Lesson\ Plans";
     };
 };
@@ -350,16 +352,20 @@ programs.zathura = {
         set index-active-fg       "#FAC898"
         set inputbar-bg           "#251101"
         set inputbar-fg           "#FCAB64"
+        set selection-clipboard   "clipboard"    # Allow pasting using Ctrl+V
     '';
 };
 
 #===============================================================================================================================================#
 
-#ZATHURA==========================================================================================================================================#
+#RIPGREP==========================================================================================================================================#
 
 programs.ripgrep = {
     enable    = true;
+    package   = pkgs.ripgrep;
     arguments = [
+        "--max-columns=150"
+        "--max-columns-preview"
         "--hidden"
         "--colors=line:fg:yellow"
         "--colors=line:style:bold"
@@ -426,6 +432,8 @@ programs.neovim = {
           type   = "lua";
         }
         {
+          # Check https://nixos.wiki/wiki/Treesitter for
+          # implementation details, syntax, etc
           plugin = nvim-treesitter.withPlugins (p: with p; [
             c
             lua
@@ -443,6 +451,8 @@ programs.neovim = {
             markdown_inline
             xml
             yaml
+            toml
+#            latex
           ]);
           type   = "lua";
         }

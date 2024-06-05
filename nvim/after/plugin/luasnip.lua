@@ -76,6 +76,7 @@ ls.add_snippets('tex', {
     })
 })
 
+-- tk triggers \textbf{}
 ls.add_snippets('tex', {
     s('tbk', {
         t('\\textbf{'),
