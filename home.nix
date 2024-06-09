@@ -211,6 +211,11 @@ home.file = {
     ".config/nvim/after/plugin/luasnip.lua".source = ./nvim/after/plugin/luasnip.lua;
            #                              #
            #------------------------------#
+           #-------- oil-nvim.lua ---------#
+           #                              #
+    ".config/nvim/after/plugin/oil.lua".source = ./nvim/after/plugin/oil.lua;
+           #                              #
+           #------------------------------#
 
 #===-===-===-===-===-===-===-===-===-===-===-===-===-===-#
 

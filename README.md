@@ -93,7 +93,7 @@ home-manager switch --flake ~/.config/home-manager
 
 # or
 
-hm                            # (A shell alias that was set in home.nix)
+hm                            # (A shell alias that was set in our home.nix)
 
 # or 
 
@@ -136,7 +136,7 @@ home-manager switch --flake . # Switching into your flake with home-manager will
 
 home-manager generations                   # List home-manager generations
 
-home-manager remove-generations $(seq x y) # Remove whichever generations you want. 
+home-manager remove-generations $(seq x y) # Remove whichever generations you want. Do `nix store gc` BEFORE removing generations
                                            # To remove a whole sequence of generations from 'x' to 'y', replace x and y to select desired range.
 
 nix store gc                               # Activate garbage collection on your current Nix store.
@@ -160,13 +160,15 @@ home-manager uninstall       # Uninstall home-manager as a user-level config/pac
 #### 7. Checking Health
 
 ```bash
-nix doctor                                                  # Basic nix installation check
-nix store optimise                                          # Replaces identical files in the store with hard links to a single instance
+nix doctor                                                  # Basic nix installation checks
+/nix/nix-installer self-test                                # Nix installation in various shells
+/nix/nix-installer repair                                   # If sometimes nix disappears after OS updates...
 nix store gc                                                # Garbage collect unused paths. Do this **before** removing generations in HM?
+nix store optimise                                          # Replaces identical files in the store with hard links to a single instance
 nix store verify --all                                      # Verify the integrity of store paths
 nix store verify --store https://cache.nixos.org            # Get signatures from binary cache for untrusted paths
-nix store repair                                            # Repair store paths
-sqlite3 /nix/var/nix/db/db.sqlite 'pragma integrity_check'  # Checking the database through sqlite
+nix store repair                                            # Repair individual store paths after finding corrupt ones using `nix store verify`
+sqlite3 /nix/var/nix/db/db.sqlite 'PRAGMA integrity_check'  # Checking the database through sqlite
 ```
 
 # To-do

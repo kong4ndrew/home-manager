@@ -33,9 +33,9 @@ vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'         -- Treesitter's fo
 vim.opt.foldenable     = false                                -- Folds are disabled at startup
 
 vim.opt.cursorline     = true                                 -- Enable cursorline highlights
-vim.opt.cursorlineopt  = 'both'                             -- Set cursorline highlight option to just the line number of the cursor
+vim.opt.cursorlineopt  = 'both'                               -- Set cursorline highlight option to just the line number of the cursor
 
 vim.opt.showtabline    = 2                                    -- Always display tabline
 
 vim.g.mapleader        = ' '
-vim.opt.conceallevel   = 1                                    -- Concealment for markdown and LaTeX files
+vim.opt.conceallevel   = 1                                    -- Conceal for markdown and LaTeX files
