@@ -1,8 +1,8 @@
 -- Keymaps --
 
 vim.g.mapleader = ' '
-vim.keymap.set('n', '<leader>e', vim.cmd.Ex)                  -- <leader>e  executes the :Ex command
-vim.keymap.set('n', '<leader>re', vim.cmd.Rex)                -- <leader>re executes the :Re command
+-- vim.keymap.set('n', '<leader>e', vim.cmd.Ex)                  -- <leader>e  executes the :Ex command. Check oil.lua for my :Ex equivalent in oil
+-- vim.keymap.set('n', '<leader>re', vim.cmd.Rex)                -- <leader>re executes the :Re command. Check oil.lua for my :Rex equivalent in oil
 
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")                  -- When in visual mode, 'J' will move the selected chunk down
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")                  -- When in visual mode, 'K' will move the selected chunk up
