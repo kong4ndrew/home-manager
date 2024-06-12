@@ -8,7 +8,6 @@
 # overlays in your flake.nix?
 
 # For more information check out nixos.wiki on overlays: https://nixos.wiki/wiki/Overlays
-
 nixpkgs.overlays = [
     (final: prev: {
         sf-mono-liga-bin = prev.stdenvNoCC.mkDerivation {
@@ -382,11 +381,7 @@ programs.ripgrep = {
 programs.neovim = {
     enable         = true;
     defaultEditor  = true;
-    extraLuaConfig = ''
-      require('andrewkong')
-      require('test');
-      print('hello mom')
-    '';
+    extraLuaConfig = "require('andrewkong')"; 
     viAlias        = true;
     vimAlias       = true;
     # To add plugins that aren't yet packaged in nixpkgs see 11. in 
