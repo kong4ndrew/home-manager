@@ -384,9 +384,13 @@ programs.neovim = {
     defaultEditor  = true;
     extraLuaConfig = ''
       require('andrewkong')
+      require('test');
+      print('hello mom')
     '';
     viAlias        = true;
     vimAlias       = true;
+    # To add plugins that aren't yet packaged in nixpkgs see 11. in 
+    # https://gist.github.com/nat-418/d76586da7a5d113ab90578ed56069509
     plugins = with pkgs.vimPlugins; [
 
         {
@@ -430,8 +434,8 @@ programs.neovim = {
           type   = "lua";
         }
         {
-          # Check https://nixos.wiki/wiki/Treesitter for
-          # implementation details, syntax, etc
+          # Check https://nixos.wiki/wiki/Treesitter for an
+          # explanation of the syntax of the following expression:
           plugin = nvim-treesitter.withPlugins (p: with p; [
             c
             lua
@@ -472,6 +476,14 @@ programs.neovim = {
         }
         {
           plugin = luasnip;
+          type   = "lua";
+        }
+        {
+          plugin = cmp-buffer;
+          type   = "lua";
+        }
+        {
+          plugin = cmp-path;
           type   = "lua";
         }
         {
@@ -519,6 +531,6 @@ programs.neovim = {
 
 #===============================================================================================================================================#
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+# Let Home Manager install and manage itself.
+programs.home-manager.enable = true;
 }
