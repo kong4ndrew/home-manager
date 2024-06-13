@@ -237,16 +237,24 @@ home.sessionVariables = {
 #ZSH============================================================================================================================================#
 
 programs.zsh = {
-    enable           = true;
-    dotDir           = ".config/zsh";
-    enableCompletion = true;
-    initExtra        = "
+    enable                = true;
+    autosuggestion.enable = true;
+    dotDir                = ".config/zsh";
+    initExtra             = "
         # Sourcing p10k.zsh for powerlevel10k
         [[ ! -f ${./zsh/p10k.zsh} ]] || source ${./zsh/p10k.zsh} 
 
         # Remove delay in registering ESC
         KEYTIMEOUT=1
+
+        # <C-y> for accepting autosuggestions
+        bindkey '^y' autosuggest-accept
     ";
+
+    syntaxHighlighting = {
+        enable = true;
+        # styles = {};
+    };
 
     prezto = {
         enable        = true;
@@ -287,6 +295,7 @@ programs.zsh = {
     };
 };
 
+programs.fzf.enableZshIntegration = true;
 
 #===============================================================================================================================================#
 
@@ -300,7 +309,7 @@ programs.kitty = {
     theme  = "Alabaster";
     enable = true;
     font = {
-        size = 15;
+        size = 14;
         name = "Liga SFMono Nerd Font"; # Check FontBook for the name because it must be verbatim
     };
     shellIntegration = {
@@ -316,13 +325,16 @@ programs.kitty = {
         background_opacity    = "1.0";
         background_tint       = 1;
         background            = "#f8f4f0";
+        text_composition_strategy = "2.40 35";
+        tab_bar_style             = "powerline";
+        # modify_font               = "baseline 1";
 #        background            = "#15202B";
     };
 };
 
 #===============================================================================================================================================#
 
-#ZATHURA==========================================================================================================================================#
+#ZATHURA========================================================================================================================================#
 
 programs.zathura = {
     enable = true;
