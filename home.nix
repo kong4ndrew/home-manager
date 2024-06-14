@@ -108,108 +108,64 @@ home.file = {
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
-#===-===-===~/.config/nvim/lua/andrewkong/...-===-===-===-#
+#===-===-===~/.config/nvim/lua/andrewkong/...-===-===-===-===-===-===-===-===-===-===-===-===
 
-           #---------- init.lua ----------#
-           #                              #
+    # init.lua
     ".config/nvim/lua/andrewkong/init.lua".source = ./nvim/lua/andrewkong/init.lua;
-           #                              #
-           #------------------------------#
 
-           #--------- remaps.lua ---------#
-           #                              #
+    # remaps.lua
     ".config/nvim/lua/andrewkong/remaps.lua".source = ./nvim/lua/andrewkong/remaps.lua;
-           #                              #
-           #------------------------------#
 
-           #---------- set.lua -----------#
-           #                              #
+    # set.lua
     ".config/nvim/lua/andrewkong/set.lua".source = ./nvim/lua/andrewkong/set.lua;
-           #                              #
-           #------------------------------#
 
-#-===-===-===-===-===-===-===-===-===-===-===-===-===-===-#
+#-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===
 
-#===-===-===~/.config/nvim/after/plugin/...===-===-===-===#
+#-===-===-===~/.config/nvim/after/...-===-===-===-===-===-===-===-===-===-===-===-===-===-===
 
-           #----------- lsp.lua ----------#
-           #                              #
+    # queries/swift/queries.scm
+    ".config/nvim/after/queries/swift/queries.scm".source = ./nvim/after/queries/swift/queries.scm;
+
+    # lsp.lua
     ".config/nvim/after/plugin/lsp.lua".source = ./nvim/after/plugin/lsp.lua;
-           #                              #
-           #------------------------------#
 
-           #------- telescope.lua --------#
-           #                              #
+    # telescope.lua
     ".config/nvim/after/plugin/telescope.lua".source = ./nvim/after/plugin/telescope.lua;
-           #                              #
-           #------------------------------#
 
-           #-------- lualine.lua ---------#
-           #                              #                                         
+    # lualine.lua 
     ".config/nvim/after/plugin/lualine.lua".source = ./nvim/after/plugin/lualine.lua;
-           #                              #
-           #------------------------------#
 
-           #-------- colors.lua ----------#
-           #                              #
+    # colors.lua
     ".config/nvim/after/plugin/colors.lua".source = ./nvim/after/plugin/colors.lua;
-           #                              #
-           #------------------------------#
 
-           #------- treesitter.lua -------#
-           #                              #
+    # treesitter.lua
     ".config/nvim/after/plugin/treesitter.lua".source = ./nvim/after/plugin/treesitter.lua;
-           #                              #
-           #------------------------------#
 
-           #-------- harpoon.lua ---------#
-           #                              #
+    # harpoon.lua
     ".config/nvim/after/plugin/harpoon.lua".source = ./nvim/after/plugin/harpoon.lua;
-           #                              #
-           #------------------------------#
 
-           #-------- undotree.lua --------#
-           #                              #
+    # undotree.lua
     ".config/nvim/after/plugin/undotree.lua".source = ./nvim/after/plugin/undotree.lua;
-           #                              #
-           #------------------------------#
 
-           #-------- fugitive.lua --------#
-           #                              #
+    # fugitive.lua
     ".config/nvim/after/plugin/fugitive.lua".source = ./nvim/after/plugin/fugitive.lua;
-           #                              #
-           #------------------------------#
 
-           #------- indentline.lua -------#
-           #                              #
+    # indentline.lua
     ".config/nvim/after/plugin/indentline.lua".source = ./nvim/after/plugin/indentline.lua;
-           #                              #
-           #------------------------------#
 
-           #--------- tabby.lua ----------#
-           #                              #
+    # tabby.lua
     ".config/nvim/after/plugin/tabby.lua".source = ./nvim/after/plugin/tabby.lua;
-           #                              #
-           #------------------------------#
 
-           #--------- vimtex.lua ---------#
-           #                              #
+    # vimtex.lua
     ".config/nvim/after/plugin/vimtex.lua".source = ./nvim/after/plugin/vimtex.lua;
-           #                              #
-           #------------------------------#
 
-           #-------- luasnip.lua ---------#
-           #                              #
+    # luasnip.lua
     ".config/nvim/after/plugin/luasnip.lua".source = ./nvim/after/plugin/luasnip.lua;
-           #                              #
-           #------------------------------#
-           #-------- oil-nvim.lua ---------#
-           #                              #
-    ".config/nvim/after/plugin/oil.lua".source = ./nvim/after/plugin/oil.lua;
-           #                              #
-           #------------------------------#
 
-#===-===-===-===-===-===-===-===-===-===-===-===-===-===-#
+    # oil.lua
+    ".config/nvim/after/plugin/oil.lua".source = ./nvim/after/plugin/oil.lua;
+
+#-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-
 
 
 };
@@ -296,6 +252,7 @@ programs.zsh = {
 };
 
 programs.fzf.enableZshIntegration = true;
+programs.fastfetch.enable = true;
 
 #===============================================================================================================================================#
 
@@ -309,7 +266,7 @@ programs.kitty = {
     theme  = "Alabaster";
     enable = true;
     font = {
-        size = 14;
+        size = 15;
         name = "Liga SFMono Nerd Font"; # Check FontBook for the name because it must be verbatim
     };
     shellIntegration = {
@@ -317,18 +274,17 @@ programs.kitty = {
         enableZshIntegration = true;
     };
     settings = {
-        bold_font             = "Liga SFMono Nerd Font Bold";
-        italic_font           = "Liga SFMono Nerd Font SemiBold";     # Basically doing this to hack a semibold weight option into neovim :(
-        bold_italic_font      = "Liga SFMono Nerd Font Light Italic"; # Same thing as above except with a light weight
-        cursor_blink_interval = 0;
-        background_blur       = 64;
-        background_opacity    = "1.0";
-        background_tint       = 1;
-        background            = "#f8f4f0";
-        text_composition_strategy = "2.40 35";
+        bold_font                 = "Liga SFMono Nerd Font Bold";
+        italic_font               = "Liga SFMono Nerd Font SemiBold";     # Basically doing this to hack a semibold weight option into neovim :(
+        bold_italic_font          = "Liga SFMono Nerd Font Light Italic"; # Same thing as above except with a light weight
+        cursor_blink_interval     = 0;
+        background                = "#FFFFFF";
+        background_opacity        = "1.0";
+        text_composition_strategy = "2.40 30";
         tab_bar_style             = "powerline";
-        # modify_font               = "baseline 1";
-#        background            = "#15202B";
+        # background_blur         = 64;
+        # modify_font             = "baseline 1";
+        # background              = "#15202B";
     };
 };
 

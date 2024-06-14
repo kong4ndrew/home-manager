@@ -20,7 +20,7 @@ vim.opt.undofile       = true
 vim.opt.hlsearch       = true                                 -- Prevent search highlights from persisting 
 vim.opt.incsearch      = true                                 -- Use incremental search with regex to search complex entries!
 
-vim.opt.termguicolors  = true
+-- vim.opt.termguicolors  = true                                 -- Enabled by default from version 0.10.0
 
 vim.opt.scrolloff      = 0                                    -- When scrolling with cursor, at least 'x' number of rows will be left between cursor and screen
 vim.opt.signcolumn     = "yes"                                -- A dedicated column for debugging signs etc.

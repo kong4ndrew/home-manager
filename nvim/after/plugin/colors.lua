@@ -1,6 +1,8 @@
 -- Colorscheme-related Config --
 
 -- Nightfox configuration
+
+-- Chore: Try to emulate xcode colorscheme
 local shade    = require('nightfox.lib.shade')
 
 local options = {
@@ -8,8 +10,21 @@ local options = {
         comments     = 'bold,italic',
         conditionals = 'italic',
         keywords     = 'bold',
+        types        = 'bold',
+        functions    = 'italic',
     },
 }
+        -- bg0     = '',
+        -- bg1     = '',
+        -- bg2     = '',
+        -- bg3     = '',
+        -- bg4     = '',
+        -- fg0     = '',
+        -- fg1     = '',
+        -- fg2     = '',
+        -- fg3     = '',
+        -- sel0    = '',
+        -- sel1    = '',
 local palettes = {
     dayfox = {
         black   = '#000000',
@@ -23,17 +38,6 @@ local palettes = {
         orange  = '#643820',                                              -- Unused
         pink    = shade.new('#6C36A9','#3900A0', '#6C36A9', '#6C36A9'),   -- Other Class Names, Other Constants
         comment = '#5D6C79',                                              -- Comments (Note: comment cannot be a shade)
-        -- bg0     = '',
-        -- bg1     = '',
-        -- bg2     = '',
-        -- bg3     = '',
-        -- bg4     = '',
-        -- fg0     = '',
-        -- fg1     = '',
-        -- fg2     = '',
-        -- fg3     = '',
-        -- sel0    = '',
-        -- sel1    = '',
     },
 }
 -- 
@@ -107,13 +111,12 @@ require('nightfox').setup({
 --     },
 -- })
 
--- In the future, add a way to reload lualine and kitty as well?
 function Colorme(color)
     color = color or 'dayfox'
     vim.cmd.colorscheme(color)
 
-    vim.api.nvim_set_hl(0, 'Normal', { bg = none })
-    vim.api.nvim_set_hl(0, 'NormalFloat', { bg = none })
+    vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+    vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 
     -- vim.api.nvim_set_hl(0, 'Cursor', { bg = '#FFFFFF' }) This didn't change anything...
     vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#EDF5FF' })
