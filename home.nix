@@ -46,7 +46,6 @@ home = {
 
 #===============================================================================================================================================#
 
-
 #MACOS GLOBAL AND LOCAL USER DEFAULTS===========================================================================================================#
 
 # Use this if you want to set system and user level defaults?
@@ -57,14 +56,9 @@ targets.darwin = {
 
 #===============================================================================================================================================#
 
-
 #HOME MANAGER PACKAGES==========================================================================================================================#
 
-# The home.packages option allows you to install Nix packages into your
-# environment.
 home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
     ponysay
     bat
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -88,21 +82,15 @@ home.packages = with pkgs; [
 
 #HOME FILES=====================================================================================================================================#
 
-# Home Manager is pretty good at managing dotfiles. The primary way to manage
-# plain files is through 'home.file'.
 home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
+    # To source home-files, you have to STAGE IT IN GIT! Nix takes into 
+    # consideration the git index...I wasted so much time figuring that one out!!! 
+    # Also, the file must be in the same directory as home.nix and flake.nix. Using a
+    # higher-level path gives you an error and trying to reference the path is
+    # considered 'impure'.
 
-    # # To source home-files, you have to STAGE IT IN GIT! Nix takes into 
-    # # consideration the git index...I wasted so much time figuring that one out!!! 
-    # # Also, the file must be in the same directory as home.nix and flake.nix. Using a
-    # # higher-level path gives you an error and trying to reference the path is
-    # # considered 'impure'.
     # ".screenrc".source = dotfiles/screenrc;
 
-    # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
@@ -125,6 +113,9 @@ home.file = {
 
     # queries/swift/queries.scm
     ".config/nvim/after/queries/swift/queries.scm".source = ./nvim/after/queries/swift/queries.scm;
+
+    # queries/swift/highlights.scm
+    ".config/nvim/after/queries/swift/highlights.scm".source = ./nvim/after/queries/swift/highlights.scm;
 
     # lsp.lua
     ".config/nvim/after/plugin/lsp.lua".source = ./nvim/after/plugin/lsp.lua;
@@ -164,11 +155,9 @@ home.file = {
 
     # oil.lua
     ".config/nvim/after/plugin/oil.lua".source = ./nvim/after/plugin/oil.lua;
-
-#-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-
-
-
 };
+
+#-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===-===
 
 #HOME SESSION VARIABLES=========================================================================================================================#
 
@@ -251,19 +240,22 @@ programs.zsh = {
     };
 };
 
+#OTHER PROGRAM ENABLES==========================================================================================================================#
+
 programs.fzf.enableZshIntegration = true;
 programs.fastfetch.enable = true;
+programs.btop.enable = true;
 
 #===============================================================================================================================================#
 
 #KITTY==========================================================================================================================================#
 
 programs.kitty = {
-#    theme  = "Tokyo Night";
-#    theme = "Alabaster Dark";
-#    theme = "Nightfox";
-#    theme = "CLRS";
-    theme  = "Alabaster";
+    #theme  = "Tokyo Night";
+    #theme = "Alabaster Dark";
+    #theme = "Nightfox";
+    #theme = "CLRS";
+    theme  = "Atom One Light";
     enable = true;
     font = {
         size = 15;
@@ -274,17 +266,24 @@ programs.kitty = {
         enableZshIntegration = true;
     };
     settings = {
-        bold_font                 = "Liga SFMono Nerd Font Bold";
-        italic_font               = "Liga SFMono Nerd Font SemiBold";     # Basically doing this to hack a semibold weight option into neovim :(
-        bold_italic_font          = "Liga SFMono Nerd Font Light Italic"; # Same thing as above except with a light weight
-        cursor_blink_interval     = 0;
-        background                = "#FFFFFF";
-        background_opacity        = "1.0";
-        text_composition_strategy = "2.40 30";
-        tab_bar_style             = "powerline";
-        # background_blur         = 64;
-        # modify_font             = "baseline 1";
-        # background              = "#15202B";
+        bold_font                    = "Liga SFMono Nerd Font SemiBold";
+        italic_font                  = "Liga SFMono Nerd Font Medium";       # Basically doing this to hack a semibold weight option into neovim :(
+        bold_italic_font             = "Liga SFMono Nerd Font Light Italic"; # Same thing as above except with a light weight
+        modify_font                  = "cell_height 8px";
+        macos_thicken_font           = "0.58";
+        text_composition_strategy    = "1.0 25";
+        cursor                       = "#0A60FF";
+        cursor_text_color            = "background";
+        cursor_blink_interval        = 0;
+        background                   = "#FFFFFF";
+        background_opacity           = "1.0";
+        tab_bar_style                = "powerline";
+        tab_powerline_style          = "round";
+        tab_bar_align                = "left";
+        macos_colorspace             = "srgb";
+        wheel_scroll_multiplier      = 2;
+        mouse_hide_wait              = 3;
+        macos_traditional_fullscreen = "yes";
     };
 };
 

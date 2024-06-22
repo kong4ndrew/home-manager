@@ -48,3 +48,6 @@ vim.keymap.set('n', '<C-i>', '<C-i>zz')
 vim.keymap.set('n', '<leader>t', vim.cmd.tabnew)              -- <leader>t creates new tab
 vim.keymap.set('n', '<C-S-j>'  , 'gT')                        -- <C-S-j> goes to previous tab
 vim.keymap.set('n', '<C-S-k>'  , 'gt')                        -- <C-S-k> goes to next tab
+
+vim.keymap.set('n', '<S-ScrollWheelUp>', 'zh')                -- TODO: not working and still scrolls full page across
+vim.keymap.set('n', '<S-ScrollWheelDown>', 'zl')              -- TODO: not working and still scrolls full page across

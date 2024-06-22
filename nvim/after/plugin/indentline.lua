@@ -1,6 +1,9 @@
 -- Indentline Config --
 
 require('ibl').setup({
-    indent = { char = '┊'},
+    indent = {
+        char = '┊',
+        highlight = 'LineNr'
+    },
     scope = { enabled = false },
 })

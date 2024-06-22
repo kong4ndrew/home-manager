@@ -21,6 +21,13 @@ lsp_zero.on_attach(function(_, bufnr)
 
 end)
 
+-- LSP Semantic Token Integration
+--lsp_zero.set_server_config({
+--    on_init = function(client)
+--        client.server_capabilities.semanticTokenProvider = nil
+--    end,
+--})
+
 lsp_zero.set_sign_icons({
     error = '',
     warn  = '',
@@ -79,38 +86,38 @@ cmp.setup({
             select = true,
         }),
 
-        ['<Tab>'] = cmp.mapping(function(fallback)              -- Also allowing Tab to select next item or expand snippet
-            if cmp.visible() then
-                cmp.select_next_item()
-            elseif luasnip.expand_or_locally_jumpable() then
-                luasnip.expand_or_jump()
-            else
-                fallback()
-            end
-        end, { 'i', 's' }),
+        --['<Tab>'] = cmp.mapping(function(fallback)              -- Also allowing Tab to select next item or expand snippet
+        --    if cmp.visible() then
+        --        cmp.select_next_item()
+        --    elseif luasnip.expand_or_locally_jumpable() then
+        --        luasnip.expand_or_jump()
+        --    else
+        --        fallback()
+        --    end
+        --end, { 'i', 's' }),
 
-        ['<S-Tab>'] = cmp.mapping(function(fallback)            -- Also allowing S-Tab to select previous item or jump back
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif luasnip.locally_jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
-            end
-        end, { 'i', 's' }),
+        --['<S-Tab>'] = cmp.mapping(function(fallback)            -- Also allowing S-Tab to select previous item or jump back
+        --    if cmp.visible() then
+        --        cmp.select_prev_item()
+        --    elseif luasnip.locally_jumpable(-1) then
+        --        luasnip.jump(-1)
+        --    else
+        --        fallback()
+        --    end
+        --end, { 'i', 's' }),
 
---         ['<CR>'] = cmp.mapping(function(fallback)               -- Also allowing <CR> to confirm completion or expand snippet(?)
---             if cmp.visible() then                               -- Don't enable this, it messes things up if you want to put a newline after expanding a snippet
---                 cmp.confirm({
---                     behavior = cmp.ConfirmBehavior.Replace,
---                     select = true
---                 })
---             elseif luasnip.expand_or_locally_jumpable() then
---                 luasnip.expand_or_jump()
---             else
---                 fallback()
---             end
---         end, { 'i', 's' }),
+        --['<CR>'] = cmp.mapping(function(fallback)               -- Also allowing <CR> to confirm completion or expand snippet(?)
+        --    if cmp.visible() then                               -- Don't enable this, it messes things up if you want to put a newline after expanding a snippet
+        --        cmp.confirm({
+        --            behavior = cmp.ConfirmBehavior.Replace,
+        --            select = true
+        --        })
+        --    elseif luasnip.expand_or_locally_jumpable() then
+        --        luasnip.expand_or_jump()
+        --    else
+        --        fallback()
+        --    end
+        --end, { 'i', 's' }),
     },
     sources = {
         { name = 'path' },

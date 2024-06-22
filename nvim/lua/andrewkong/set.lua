@@ -40,3 +40,4 @@ vim.opt.showtabline    = 2                                    -- Always display 
 vim.g.mapleader        = ' '
 vim.opt.conceallevel   = 1                                    -- Conceal for markdown and LaTeX files
 vim.opt.hlsearch       = false                                -- Turn off highlighting for searches
+vim.opt.swapfile       = false                                -- Disable swapfiles
