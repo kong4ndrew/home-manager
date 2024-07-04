@@ -190,8 +190,8 @@
 
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
-  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=26
-  typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=15
+  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=#1D3557
+  typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=#F1FAEE
   # Custom icon.
   # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⭐'
 
@@ -220,19 +220,19 @@
 
   ##################################[ dir: current directory ]##################################
   # Current directory background color.
-  typeset -g POWERLEVEL9K_DIR_BACKGROUND=26
+  typeset -g POWERLEVEL9K_DIR_BACKGROUND=#1D3557
   # Default current directory foreground color.
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND=15
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND=#F1FAEE
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
   # Replace removed segment suffixes with this symbol.
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
   # Color of the shortened directory segments.
-  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=250
+  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=#F1FAEE
   # Color of the anchor directory segments. Anchor segments are never shortened. The first
   # segment is always an anchor.
-  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=15
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=#F1FAEE
   # Display anchor directory segments in bold.
   typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
   # Don't shorten directories that contain any of these files. They are anchors.
@@ -359,10 +359,10 @@
 
   #####################################[ vcs: git status ]######################################
   # Version control background colors.
-  typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=152
-  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=147
-  typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=152
-  typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=147
+  typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=#F1FAEE
+  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=#F1FAEE
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=#F1FAEE
+  typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=#F1FAEE
   typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND=8
 
   # Branch icon. Set this parameter to '\UE0A0 ' for the popular Powerline branch icon.
@@ -391,11 +391,11 @@
     fi
 
     # Styling for different parts of Git status.
-    local       meta='%0F' # black foreground
-    local      clean='%0F' # black foreground
-    local   modified='%0F' # black foreground
-    local  untracked='%0F' # black foreground
-    local conflicted='%9F' # red foreground
+    local       meta='%F{#1D3557}' # black foreground
+    local      clean='%F{#1D3557}' # black foreground
+    local   modified='%F{#1D3557}' # black foreground
+    local  untracked='%F{#1D3557}' # black foreground
+    local conflicted='%F{#E63946}' # red foreground
 
     local res
 
@@ -512,41 +512,41 @@
   typeset -g POWERLEVEL9K_STATUS_OK=true
   typeset -g POWERLEVEL9K_STATUS_OK_VISUAL_IDENTIFIER_EXPANSION='✔'
   typeset -g POWERLEVEL9K_STATUS_OK_FOREGROUND=#255957
-  typeset -g POWERLEVEL9K_STATUS_OK_BACKGROUND=#EEEBD3
+  typeset -g POWERLEVEL9K_STATUS_OK_BACKGROUND=#F1FAEE
 
   # Status when some part of a pipe command fails but the overall exit status is zero. It may look
   # like this: 1|0.
   typeset -g POWERLEVEL9K_STATUS_OK_PIPE=true
   typeset -g POWERLEVEL9K_STATUS_OK_PIPE_VISUAL_IDENTIFIER_EXPANSION='✔'
   typeset -g POWERLEVEL9K_STATUS_OK_PIPE_FOREGROUND=#255957
-  typeset -g POWERLEVEL9K_STATUS_OK_PIPE_BACKGROUND=#EEEBD3
+  typeset -g POWERLEVEL9K_STATUS_OK_PIPE_BACKGROUND=#F1FAEE
 
   # Status when it's just an error code (e.g., '1'). No need to show it if prompt_char is enabled as
   # it will signify error by turning red.
   typeset -g POWERLEVEL9K_STATUS_ERROR=true
   typeset -g POWERLEVEL9K_STATUS_ERROR_VISUAL_IDENTIFIER_EXPANSION='✘'
-  typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=#EF233C
-  typeset -g POWERLEVEL9K_STATUS_ERROR_BACKGROUND=#EEEBD3
+  typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=#E63946
+  typeset -g POWERLEVEL9K_STATUS_ERROR_BACKGROUND=#F1FAEE
 
   # Status when the last command was terminated by a signal.
   typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL=true
   # Use terse signal names: "INT" instead of "SIGINT(2)".
   typeset -g POWERLEVEL9K_STATUS_VERBOSE_SIGNAME=false
   typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_VISUAL_IDENTIFIER_EXPANSION='✘'
-  typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_FOREGROUND=#F14156
-  typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_BACKGROUND=#EEEBD3
+  typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_FOREGROUND=#E63946
+  typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL_BACKGROUND=#F1FAEE
 
   # Status when some part of a pipe command fails and the overall exit status is also non-zero.
   # It may look like this: 1|0.
   typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE=true
   typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_VISUAL_IDENTIFIER_EXPANSION='✘'
-  typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_FOREGROUND=#EF233C
-  typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_BACKGROUND=#EEEBD3
+  typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_FOREGROUND=#E63946
+  typeset -g POWERLEVEL9K_STATUS_ERROR_PIPE_BACKGROUND=#F1FAEE
 
   ###################[ command_execution_time: duration of the last command ]###################
   # Execution time color.
-  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=0
-  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND=#DDF8E8
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=#F1FAEE
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND=#1D3557
   # Show duration of the last command if takes at least this many seconds.
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=3
   # Show this many fractional digits. Zero means round to seconds.
@@ -560,10 +560,10 @@
 
   #######################[ background_jobs: presence of background jobs ]#######################
   # Background jobs color.
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=6
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND=0
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND=#F1FAEE
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND=#457B9D
   # Don't show the number of background jobs.
-  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=false
+  typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE=true
   # Custom icon.
   # typeset -g POWERLEVEL9K_BACKGROUND_JOBS_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
@@ -823,16 +823,16 @@
 
   ###########[ vi_mode: vi mode (you don't need this if you've enabled prompt_char) ]###########
   # Foreground color.
-  typeset -g POWERLEVEL9K_VI_MODE_FOREGROUND=0
+  typeset -g POWERLEVEL9K_VI_MODE_FOREGROUND=#1D3557
   # Text and color for normal (a.k.a. command) vi mode.
   typeset -g POWERLEVEL9K_VI_COMMAND_MODE_STRING=NORMAL
-  typeset -g POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND=2
+  typeset -g POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND=#A8DADC
   # Text and color for visual vi mode.
   typeset -g POWERLEVEL9K_VI_VISUAL_MODE_STRING=VISUAL
-  typeset -g POWERLEVEL9K_VI_MODE_VISUAL_BACKGROUND=4
+  typeset -g POWERLEVEL9K_VI_MODE_VISUAL_BACKGROUND=#A8DADC
   # Text and color for overtype (a.k.a. overwrite and replace) vi mode.
   typeset -g POWERLEVEL9K_VI_OVERWRITE_MODE_STRING=OVERTYPE
-  typeset -g POWERLEVEL9K_VI_MODE_OVERWRITE_BACKGROUND=3
+  typeset -g POWERLEVEL9K_VI_MODE_OVERWRITE_BACKGROUND=#A8DADC
   # Text and color for insert vi mode.
   typeset -g POWERLEVEL9K_VI_INSERT_MODE_STRING=
   typeset -g POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND=8
@@ -1695,8 +1695,8 @@
 
   ####################################[ time: current time ]####################################
   # Current time color.
-  typeset -g POWERLEVEL9K_TIME_FOREGROUND=15
-  typeset -g POWERLEVEL9K_TIME_BACKGROUND=#255957
+  typeset -g POWERLEVEL9K_TIME_FOREGROUND=#1D3557
+  typeset -g POWERLEVEL9K_TIME_BACKGROUND=#F1FAEE
   # Format for the current time: 09:51:02. See `man 3 strftime`.
   typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%I:%M:%S %p}'
   # If set to true, time will update when you hit enter. This way prompts for the past

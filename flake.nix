@@ -2,8 +2,6 @@
   description = "Home Manager configuration of andrewkong";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
-
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };

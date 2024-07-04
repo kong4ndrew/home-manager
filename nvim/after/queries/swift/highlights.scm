@@ -65,7 +65,7 @@
 ((nil_coalescing_expression (simple_identifier) @variable.identifier) (#match? @variable.identifier "^[a-z_]"))
 
 ; ex. { ->$0<- * 2 }, { $0 / 2 }, { 2 * $0 }, { $0 +/- 1}
-; Notice that there are two escapes! There're two because TS needs to escape vim's escape of $ (and d).
+; Notice that there are two escapes in the regex! There're two because TS is escaping vim's escape of $ (and d).
 ((lambda_literal (statements (simple_identifier) @variable.builtin)) (#match? @variable.builtin "^\\$\\d+$"))
 ((lambda_literal (statements (multiplicative_expression (simple_identifier) @variable.builtin))) (#match? @variable.builtin "^\\$\\d+$"))
 ((lambda_literal (statements (additive_expression (simple_identifier) @variable.builtin))) (#match? @variable.builtin "^\\$\\d+$"))
@@ -88,3 +88,6 @@
 
 ; ex. return ->sum<-
 ((control_transfer_statement (simple_identifier) @variable.identifier) (#match? @variable.identifier "^[a-z_]"))
+
+; ->isHuman<- && ->isAlive<-
+((conjunction_expression (simple_identifier) @variable.identifier) (#match? @variable.identifier "^[a-z_]"))
