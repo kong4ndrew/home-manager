@@ -87,8 +87,8 @@ local palettes = {
     fg1     = '#000000', -- The git branch, filetype in lualine + text in cmp
     fg2     = '#000000', -- The filename, encoding, fileformat in lualine + brackets
     fg3     = '#007AFF', -- LineNr
-    sel0    = '#E8F2FF', -- ex commands bg + selection bg in cmp + visual mode selection bg (overriden in groups)
-    sel1    = '#A4CDFF', -- The selection bg in ex command popups
+    sel0    = '#B3D7FF', -- ex commands bg + selection bg in cmp + visual mode selection bg (overriden in groups)
+    sel1    = '#C9E3FF', -- The selection bg in ex command popups
   },
 }
 vim.api.nvim_set_hl(0, '@variable.identifier.swift', { link = 'Identifier' })
@@ -129,7 +129,7 @@ local groups = {
     TypeProject     = { fg = 'palette.blue.bright' },
     Visual          = { bg = 'palette.sel1' },
     CursorLineNr    = { fg = '#8C0150' },
-    ColorColumn     = { link = 'CursorLine' },
+    ColorColumn     = { link = 'StatusLine' },
   },
 }
 

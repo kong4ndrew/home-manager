@@ -91,3 +91,16 @@
 
 ; ->isHuman<- && ->isAlive<-
 ((conjunction_expression (simple_identifier) @variable.identifier) (#match? @variable.identifier "^[a-z_]"))
+
+; case ->.legal:<- 
+; This highlights both the dot and identifier. Seems like there's no way to capture only the dot?
+((switch_pattern (pattern (simple_identifier)) @variable.member) (#match? @variable.member "^\\..*$"))
+
+; case ->age<- where age < 12:
+((switch_pattern (pattern (simple_identifier)) @variable.identifier) (#match? @variable.identifier "^[a-z_]"))
+
+; case age where ->age<- < 12:
+((comparison_expression (simple_identifier) @variable.identifier) (#match? @variable.identifier "^[a-z_]"))
+
+; case mastiff(->droolRating<-: Int, ->weight<-: Int)
+(enum_type_parameters (simple_identifier) @parameter)

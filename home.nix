@@ -111,6 +111,9 @@ home.file = {
 
 #-===-===-===~/.config/nvim/after/...-===-===-===-===-===-===-===-===-===-===-===-===-===-===
 
+  # indent/swift.lua
+  ".config/nvim/after/indent/swift.vim".source = ./nvim/after/indent/swift.vim;
+
   # ftplugin/nix.lua
   ".config/nvim/after/ftplugin/nix.lua".source = ./nvim/after/ftplugin/nix.lua;
 

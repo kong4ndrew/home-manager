@@ -17,6 +17,8 @@ vim.keymap.set('n', '<C-m>', '<C-e>M')                        -- <C-m> will also
 vim.keymap.set('n', '<C-y>', '<C-y>M')                        -- <C-y> will also keep the cursor in the middle of the screen ('<C-y>' + 'M')
 vim.keymap.set('n', 'n'    , 'nzzzv')                         -- When searching, keeps cursor in the middle of the screen
 vim.keymap.set('n', 'N'    , 'Nzzzv')                         -- When searching, keeps cursor in the middle of the screen
+vim.keymap.set('n', 'g,'   , 'g,zz')                          -- When jumping to newer change, keep cursor in the middle of the screen
+vim.keymap.set('n', 'g;'   , 'g;zz')                          -- When jumping to older change, keep cursor in the middle of the screen
 
 vim.keymap.set('x', '<leader>p', '\"_dP')                     -- When pasting over something, don't replace vim clipboard with whatever was just replaced
 

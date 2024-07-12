@@ -9,8 +9,8 @@ vim.opt.softtabstop    = 0                                    -- <BS> deletes th
 vim.opt.expandtab      = true                                 -- Converts tabs to spaces
 vim.opt.smarttab       = false                                -- At the beginning of a line, insert shiftwidth spaces; in the middle of a line, insert tabstop spaces
 vim.opt.smartindent    = false                                -- Enabling this causes causes the closing brace to start one level shifted right for some reason
---vim.opt.colorcolumn    = '100'
 
+vim.opt.textwidth      = 79                                   -- In normal/visual mode, pressing 'gq' wraps/formats to this number
 vim.opt.wrap           = false
 
 vim.opt.swapfile       = false                                -- Disable swapfiles
@@ -36,7 +36,7 @@ vim.opt.foldenable     = false                                -- Folds are disab
 vim.opt.cursorline     = true                                 -- Enable cursorline highlights
 vim.opt.cursorlineopt  = 'both'                               -- Set cursorline highlight option to just the line number of the cursor
 
-vim.opt.showtabline    = 2                                    -- Always display tabline
+vim.opt.showtabline    = 1                                    -- Only display tabline if there are two tabs or more
 
 vim.g.mapleader        = ' '
 vim.opt.conceallevel   = 1                                    -- Conceal for markdown and LaTeX files

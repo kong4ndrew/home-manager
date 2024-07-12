@@ -7,8 +7,9 @@ vim.opt_local.formatoptions:prepend('or')
 -- '(1s' indents 1 shiftwidth when opening a new line inside of unclosed parens
 -- '+0' doesn't indent "continuing lines" according to C-style syntax
 -- 'p0' doesn't indent the parameters of a function according to C-style syntax
-vim.opt_local.cindent = true
-vim.opt_local.cinoptions:append('(1s,+0,p0,:0s')
+
+--vim.opt_local.cindent = true
+--vim.opt_local.cinoptions:append('(1s,+0,p0,:0s')
 
 -- Set these options despite already setting them in set.lua because
 -- $VIMRUNTIME/ftplugin/swift.vim sets shiftwidth = 4, softtabstop = 4,
@@ -20,5 +21,7 @@ vim.opt_local.tabstop = 2
 vim.opt_local.softtabstop = 0
 vim.opt_local.shiftwidth = 2
 
--- Not working for some reason
-vim.opt_local.colorcolumn = '100'
+-- For this to work, I think you need to :e for some reason
+vim.opt_local.colorcolumn = '99'
+
+vim.opt_local.textwidth = 99
