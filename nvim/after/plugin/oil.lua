@@ -1,4 +1,5 @@
 -- Oil Config
+
 local oil = require('oil')
 
 oil.setup({
@@ -10,7 +11,8 @@ oil.setup({
   delete_to_trash = true,
   skip_confirm_for_simple_edits = true,
   -- Oil will automatically delete hidden buffers after this delay.
-  -- Set the delay to false to disable cleanup entirely (allowing <leader>re to be used)
+  -- Set the delay to false to disable cleanup entirely (allowing <leader>re
+  -- to be used)
   cleanup_delay_ms = false,
   experimental_watch_for_changes = true,
   keymaps = {
@@ -29,8 +31,8 @@ oil.setup({
 
 vim.keymap.set('n', '<leader>e', '<CMD>Oil<CR>')
 
--- My replacement for netrw :Rex command. You have to set this outside of oil's
--- custom keymapping for it to work outside of oil buffers.
+-- My replacement for netrw :Rex command. You cannot set this in oil's custom
+-- keymapping options if you want it to work OUTSIDE of oil directories.
 vim.keymap.set('n', '<leader>re', function()
   local name = vim.api.nvim_buf_get_name(0)
   local cursor = vim.api.nvim_win_get_cursor(0)

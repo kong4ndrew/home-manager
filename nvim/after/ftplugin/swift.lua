@@ -7,7 +7,6 @@ vim.opt_local.formatoptions:prepend('or')
 -- '(1s' indents 1 shiftwidth when opening a new line inside of unclosed parens
 -- '+0' doesn't indent "continuing lines" according to C-style syntax
 -- 'p0' doesn't indent the parameters of a function according to C-style syntax
-
 --vim.opt_local.cindent = true
 --vim.opt_local.cinoptions:append('(1s,+0,p0,:0s')
 

@@ -1,5 +1,6 @@
 -- Treesitter Config --
--- Note: Neovim's built-in :InspectTree command now replaces the need for TSPlayground
+-- Note: Neovim's built-in :InspectTree command now replaces the need for
+-- TSPlayground
 
 require('nvim-treesitter.configs').setup({
   highlight = {

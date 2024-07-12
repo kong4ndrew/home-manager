@@ -66,7 +66,7 @@ ls.add_snippets('tex', {
     i(1),
   }))
 })
---
+
 -- tk triggers \text{}
 ls.add_snippets('tex', {
   s('tk', {
@@ -86,7 +86,8 @@ ls.add_snippets('tex', {
 })
 
 -- bk prepares \begin{environment} ... \end{environment}
--- When using fmt, you must escape curly braces with an extra curly brace {} -> {{}}
+-- When using fmt, you must escape curly braces with an extra curly brace
+-- {} -> {{}}
 ls.add_snippets('tex', {
   s('bk', fmt(
   [[
