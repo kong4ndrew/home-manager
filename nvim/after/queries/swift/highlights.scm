@@ -171,3 +171,23 @@
 ; case mastiff(->droolRating<-: Int, ->weight<-: Int)
 (enum_type_parameters
   (simple_identifier) @parameter)
+
+; if case let Puppy->.mastiff<-(droolRating, weight) = fido
+;  Not sure if there's a way to consistently capture enum cases with associated
+; values as variable members so for the sake of consistency, linking it to
+; functions
+((if_statement
+  (user_type
+    (type_identifier))
+  (simple_identifier) @function.member
+  (pattern
+    (simple_identifier))) (#match? @function.member "^[a-z_]"))
+
+; if case let Puppy.mastiff(->droolRating<-, ->weight<-) = fido {
+(if_statement
+  (pattern
+    (simple_identifier) @parameter))
+
+; if case let Puppy.mastiff(droolRating, weight) = ->fido<- {
+(if_statement
+  (simple_identifier) @variable.identifier)

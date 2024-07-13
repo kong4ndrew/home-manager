@@ -126,43 +126,43 @@ home.file = {
   # queries/swift/highlights.scm
   ".config/nvim/after/queries/swift/highlights.scm".source = ./nvim/after/queries/swift/highlights.scm;
 
-  # lsp.lua
+  # plugin/lsp.lua
   ".config/nvim/after/plugin/lsp.lua".source = ./nvim/after/plugin/lsp.lua;
 
-  # telescope.lua
+  # plugin/telescope.lua
   ".config/nvim/after/plugin/telescope.lua".source = ./nvim/after/plugin/telescope.lua;
 
-  # lualine.lua 
+  # plugin/lualine.lua 
   ".config/nvim/after/plugin/lualine.lua".source = ./nvim/after/plugin/lualine.lua;
 
-  # colors.lua
+  # plugin/colors.lua
   ".config/nvim/after/plugin/colors.lua".source = ./nvim/after/plugin/colors.lua;
 
-  # treesitter.lua
+  # plugin/treesitter.lua
   ".config/nvim/after/plugin/treesitter.lua".source = ./nvim/after/plugin/treesitter.lua;
 
-  # harpoon.lua
+  # plugin/harpoon.lua
   ".config/nvim/after/plugin/harpoon.lua".source = ./nvim/after/plugin/harpoon.lua;
 
-  # undotree.lua
+  # plugin/undotree.lua
   ".config/nvim/after/plugin/undotree.lua".source = ./nvim/after/plugin/undotree.lua;
 
-  # fugitive.lua
+  # plugin/fugitive.lua
   ".config/nvim/after/plugin/fugitive.lua".source = ./nvim/after/plugin/fugitive.lua;
 
-  # indentline.lua
+  # plugin/indentline.lua
   ".config/nvim/after/plugin/indentline.lua".source = ./nvim/after/plugin/indentline.lua;
 
-  # tabby.lua
+  # plugin/tabby.lua
   ".config/nvim/after/plugin/tabby.lua".source = ./nvim/after/plugin/tabby.lua;
 
-  # vimtex.lua
+  # plugin/vimtex.lua
   ".config/nvim/after/plugin/vimtex.lua".source = ./nvim/after/plugin/vimtex.lua;
 
-  # luasnip.lua
+  # plugin/luasnip.lua
   ".config/nvim/after/plugin/luasnip.lua".source = ./nvim/after/plugin/luasnip.lua;
 
-  # oil.lua
+  # plugin/oil.lua
   ".config/nvim/after/plugin/oil.lua".source = ./nvim/after/plugin/oil.lua;
 };
 

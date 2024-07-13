@@ -17,9 +17,14 @@ require('lualine').setup({
     section_separators = { left = '', right = '' },
   },
   sections = {
+    lualine_a = {
+      { 'mode', separator = { left = '', right = '' } }
+    },
     lualine_x = {},
     lualine_y = {'filetype', 'progress'},
-    lualine_z = {'location'}
+    lualine_z = {
+      { 'location', separator = { left = '', right = '' } }
+    },
   },
 })
 
@@ -27,3 +32,4 @@ require('lualine').setup({
 --  
 --  
 -- ┃
+-- 

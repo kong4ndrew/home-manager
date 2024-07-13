@@ -11,8 +11,8 @@
    vim.api.nvim_set_hl(0, 'myCustomCapture.swift', {})
    vim.api.nvim_set_hl(0, 'myCustomCapture.swift', { link = 'MyCustomGroup' })
 
-  Note: You can also link standard highlight-groups but put it into an autocommand
-  because colors.lua seems to get sourced earlier...For example,
+  Note: You can also link vim's standard highlight-groups but you must put it into
+  an autocommand because colors.lua seems to get sourced earlier...For example,
 
   vim.api.nvim_create_autocmd('VimEnter', {
     callback = function()
@@ -130,6 +130,8 @@ local groups = {
     Visual          = { bg = 'palette.sel1' },
     CursorLineNr    = { fg = '#8C0150' },
     ColorColumn     = { link = 'StatusLine' },
+    StatusLine      = { link = 'Normal' },
+    StatusLineNC    = { link = 'Normal' },
   },
 }
 
