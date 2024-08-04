@@ -1,8 +1,12 @@
 " Vim indent file
 " Language:	Swift
 " Maintainer:	Andrew Kong <kong4ndrew@gmail.com>
-" Last Change: 
-" Disclaimer: Likely doesn't cover all indenting situations
+" Last Change: July 13, 2024
+
+" TODO: Lines that have both code and comments which contain '{, (, [, ], ), or }'
+" will not indent correctly. Also having trouble getting synID and synIDattr to
+" work.
+" TODO: Add indenting for case body
 
 " Only load this indent file when no other was loaded.
 if exists("b:did_indent")
@@ -58,7 +62,7 @@ function! GetSwiftIndentIntern()
     endif
   endif
 
-  " If the current line matches any (or no) whitespace and a '}' or ')' or ']'
+  " If the current line starts with whitespace (or none) and a '}' or ')' or ']'
   " AND isn't a comment, subtract a 'shiftwidth' from the current line.
   " Otherwise, if the count of '}', ')', and ']' is more than the count of '{',
   " '(', and '[', subtract a 'shiftwidth' from the current line.

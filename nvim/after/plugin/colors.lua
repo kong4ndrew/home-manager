@@ -8,8 +8,8 @@
 
 2. Link the capture_id to a nightfox group or your own custom group. For example,
 
-   vim.api.nvim_set_hl(0, 'myCustomCapture.swift', {})
-   vim.api.nvim_set_hl(0, 'myCustomCapture.swift', { link = 'MyCustomGroup' })
+   vim.api.nvim_set_hl(0, '@myCustomCapture.swift', {})
+   vim.api.nvim_set_hl(0, '@myCustomCapture.swift', { link = 'MyCustomGroup' })
 
   Note: You can also link vim's standard highlight-groups but you must put it into
   an autocommand because colors.lua seems to get sourced earlier...For example,
@@ -66,18 +66,18 @@ vim.api.nvim_create_autocmd('VimEnter', {
 
 local shade = require('nightfox.lib.shade')
 local palettes = {
-  dayfox = {
-    white   = '#FFFFFF',                                          -- NOTE: Shades are (base, bright, dim, light)
-    black   = '#000000',                                          -- Brackets and Punctuation Delimiters
-    red     = '#CD2E1A',                                          -- Strings
-    pink    = shade.new('#AD3DA4', '#3900A0', '#6C36A9', false),  -- (keywords, VariableBuiltIn, Constructor, constants, conditionals, Boolean), ,
-    cyan    = shade.new('#057CB0', '#0B4F79', '#0F68A0', false),  -- (VariableMember, FunctionMember), ,
-    magenta = shade.new('#4B22B0', '#804FB8', '#AA0D91', false),  -- (Special ex. @State, type), (functions, Parameter), 
-    green   = shade.new('#3E8087', '#1C464A', '#1C464A', false),  -- (Identifier, variable), ,
-    blue    = shade.new('#1C00CF', '#03628C', '#0E0EFF', false),  -- (Numbers), (TypeProject)
-    yellow  = shade.new('#815F03', '#643820', '#815F03', false),  -- (Attributes, Other Preprocessor),
-    orange  = '#643820',                                          -- Unused
-    comment = '#5D6C79',                                          -- Comments (Note: comment cannot be a shade)
+  dayfox = {                                --***NOTE: Shades are (base, bright, dim, light)***--
+    white   = '#FFFFFF',
+    black   = '#000000', -- Brackets and Punctuation Delimiters
+    red     = '#CD2E1A', -- Strings
+    pink    = shade.new('#AD3DA4', '#3900A0', '#6C36A9', false), -- base: (keywords, VariableBuiltIn, Constructor, constants, conditionals, Boolean), bright: , dim:
+    cyan    = shade.new('#057CB0', '#0B4F79', '#0F68A0', false), -- base: (VariableMember, FunctionMember), bright: , dim:
+    magenta = shade.new('#4B22B0', '#804FB8', '#AA0D91', false), -- base: (Special ex. @State, type), bright: (functions, Parameter), dim: 
+    green   = shade.new('#3E8087', '#1C464A', '#1C464A', false), -- base: (Identifier, variable), bright: , dim:
+    blue    = shade.new('#1C00CF', '#03628C', '#0E0EFF', false), -- base: (Numbers), bright: (TypeProject), dim:
+    yellow  = shade.new('#815F03', '#643820', '#815F03', false), -- base: (Attributes, Other Preprocessor), bright: , dim:
+    orange  = '#643820', -- Unused
+    comment = '#5D6C79', -- Comments (Note: comment cannot be a shade)
     bg0     = '#FDF8F7', -- Status line + float
     bg1     = '#FFFFFF', -- The bg of the unfocused buffers when you telescope prompt, etc.
     bg2     = '#FAC9B8', -- ColorColumn
@@ -93,6 +93,7 @@ local palettes = {
 }
 vim.api.nvim_set_hl(0, '@variable.identifier.swift', { link = 'Identifier' })
 vim.api.nvim_set_hl(0, '@keyword.function.swift', { link = 'Keyword' })
+vim.api.nvim_set_hl(0, '@keyword.operator.swift', { link = 'Keyword' })
 vim.api.nvim_set_hl(0, '@boolean.swift', { link = 'Boolean' })
 
 -- Still keep empty hl groups cus if you switch from dayfox to any other nightfox theme, groups (below)
@@ -102,7 +103,7 @@ vim.api.nvim_set_hl(0, '@variable.member.swift', { fg = palettes.dayfox.cyan.bas
 vim.api.nvim_set_hl(0, '@variable.swift', { fg = palettes.dayfox.cyan.base })
 
 vim.api.nvim_set_hl(0, 'VariableBuiltIn', {})
-vim.api.nvim_set_hl(0, '@variable.builtin.swift', { fg = palettes.dayfox.pink.base, bold = true })
+vim.api.nvim_set_hl(0, '@variable.builtin.swift', { fg = palettes.dayfox.green.base, bold = true })
 
 vim.api.nvim_set_hl(0, 'FunctionMember', {})
 vim.api.nvim_set_hl(0, '@function.member.swift', { fg = palettes.dayfox.cyan.base })

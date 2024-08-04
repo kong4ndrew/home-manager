@@ -1,8 +1,8 @@
 -- Tabby Config --
 
 -- Taken from xiehuc's lualine color and bubble theme found here:
--- https://github.com/nanozuki/tabby.nvim/discussions/51 and adapted
--- to work with tabby's new setup method
+-- https://github.com/nanozuki/tabby.nvim/discussions/51
+-- Adapted to work with tabby's new setup method
 local util = require('tabby.util')
 
 local hl_tabline_fill = util.extract_nvim_hl('lualine_c_normal')
@@ -11,8 +11,8 @@ local hl_tabline_sel = util.extract_nvim_hl('lualine_a_normal')
 local hl_win = util.extract_nvim_hl('lualine_b_visual')
 local hl_win_sel = util.extract_nvim_hl('lualine_a_visual')
 
-require('tabby.tabline').set(
-  function(line)
+require('tabby').setup({
+  line = function(line)
     return {
       {
         { '  ', hl = { fg = hl_win_sel.fg, bg = hl_win_sel.bg } },
@@ -48,5 +48,11 @@ require('tabby.tabline').set(
       },
       hl = hl_tabline_fill
     }
-  end)
+  end,
+  option = {
+    buf_name = {
+      mode = 'tail',
+    },
+  },
+})
 

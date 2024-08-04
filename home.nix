@@ -237,6 +237,7 @@ programs.zsh = {
     Stats  = "cd ~/Documents/textbooks && zathura statsAnswers.pdf";
     lat    = "cd ~/Documents/'Soteric 23-24/Latex Lesson Plans' && nvim template.tex";
     Lat    = "cd ~/Documents/'Soteric 23-24/Latex Lesson Plans' && zathura template.pdf";
+    ss     = "nvim -S Session.vim";
   };
 
   loginExtra = "ponysay -b ascii -W i '⭐ The Lord is FOR you and not AGAINST you! ⭐'";
